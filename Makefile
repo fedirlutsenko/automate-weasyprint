@@ -1,16 +1,26 @@
 
-gen: book/book.css book/book_template.html identifier/identifier_template.html \
-	identifier/identifier.css
-	mkdir -p gen && python gen.py
+.PHONY: book identifier
 
-identifier_pdf:  gen
-	mkdir -p pdf
+gen/book.html: book/book.css book/book_template.html 
+gen/identifier.html: /identifier_template.html identifier/identifier.css
+
+gen:
+	mkdir gen
+
+pdf:
+	mkdir pdf
+
+gen/book.html gen/identifier.html: gen
+	python gen.py
+
+pdf/identifier.pdf:  gen/identifier.html pdf
 	weasyprint gen/identifier.html pdf/identifier.pdf
 
-book_pdf: gen
-	mkdir -p pdf
+pdf/book.pdf: gen/book.html pdf
 	weasyprint gen/book.html pdf/book.pdf
 
-book: gen book_pdf
+book: pdf/book.pdf
+
+identifier: pdf/identifier.pdf
 
 
