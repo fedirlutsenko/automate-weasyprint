@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="../identifier/identifier.css" rel="stylesheet">
+    <title>Board ticket</title>
+    <meta name="description" content="Board ticket">
+  </head>
+
+  <body>
+    {% for pref in prefs %}
+    <div class="badge">
+      <div class="cover">
+        <div class="zosia_logo"> <img src="../identifier/zosia.png"> </div>
+        <div class="caption">
+          Zimowy Obóz Studentów Informatyki <br>
+          21.02.2019 - 24.02.2019
+        </div>
+        <div class="name"> {{ pref.first_name }} {{ pref.last_name }} </div>
+      </div>
+      <div class="cover flip">
+        <div class="zosia_logo"> <img src="../identifier/zosia.png"> </div>
+        <div class="caption">
+          Zimowy Obóz Studentów Informatyki <br>
+          21.02.2019 - 24.02.2019
+        </div>
+        <div class="name"> {{ pref.first_name }} {{ pref.last_name }} </div>
+      </div>
+      <div class="meals">
+        <div class="column">
+          <div class="spacer">
+          </div>
+          <div class="meal_ticket"> 
+            <div class="meal_name">
+              {% if pref.dinner_3 %} Obiad sobota {% endif %}
+            </div>
+          </div>
+          <div class="meal_ticket"> 
+            <div class="meal_name">
+              {% if pref.dinner_2 %} Obiad piątek {% endif %}
+            </div>
+          </div>
+          <div class="meal_ticket"> 
+            <div class="meal_name">
+              {% if pref.dinner_1 %} Obiad czwartek {% endif %}
+            </div>
+          </div>
+        </div>
+        <div class="spacer">
+        </div>
+        <div class="column">
+          <div class="spacer">
+          </div>
+          <div class="meal_ticket"> 
+            <div class="meal_name">
+              {% if pref.breakfast_4 %} Śniadanie niedziela {% endif %}
+            </div>
+          </div>
+          <div class="meal_ticket"> 
+            <div class="meal_name">
+              {% if pref.breakfast_3 %} Śniadanie sobota {% endif %}
+            </div>
+          </div>
+          <div class="meal_ticket"> 
+            <div class="meal_name">
+              {% if pref.breakfast_2 %} Śniadanie piątek {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </body>
+</html>
+

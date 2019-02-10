@@ -1,0 +1,93 @@
+
+@page {
+  size: 110mm 180mm;
+  marks: crop;
+  margin: 0;
+}
+
+html {
+  font-family: 'PT Sans', sans-serif;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+.badge {
+  width: 110mm;
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.cover {
+  box-sizing: border-box;
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  margin: 0;
+  padding: 3mm;
+  height: 100%;
+  width: 104mm;
+}
+
+.meals {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: stretch;
+  height: 100%;
+  width: 110mm;
+}
+
+.meals .column {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.meals .spacer {
+  width: 30mm;
+}
+
+.meals .column .spacer {
+  height: 10mm;
+}
+
+.name {
+  margin-top: 5mm;
+  text-align: center;
+  font-size: 35px;
+}
+
+.zosia_logo {
+  margin-top: 3mm;
+}
+
+.flip {
+  transform: rotate(180deg);
+}
+
+img {
+  max-width:100%;
+  max-height:100%;
+}
+
+.meal_ticket {
+  border-style: dashed;
+  border-width: 1px 0px;
+  border-collapse: collapse;
+  height: 15mm;
+}
+
+.meal_name {
+  line-height: 15mm;
+  text-align: center;
+}
+
