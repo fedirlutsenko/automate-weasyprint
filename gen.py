@@ -65,6 +65,5 @@ env = Environment(loader=FileSystemLoader('./'))
 with open("data.json", "r") as json_file:
     data = json_file.read()
     data = json.loads(data);
-    print(get_lecture_with_close_title("Fak News", data))
     gen_identifier(data);
     gen_book(schedule, data);
