@@ -11,6 +11,7 @@
   margin: 0mm;
 }
 
+
 html {
   font-family: 'Roboto', sans-serif;
   height: 100%;
@@ -20,6 +21,13 @@ body {
   height: 100%;
   width: 100%;
   margin: 0;
+}
+
+.blank {
+  page: blank;
+  height: 214mm;
+  break-after: always;
+  break-before: always;
 }
 
 .title_page {
@@ -114,6 +122,7 @@ body {
 
 .event .hour {
   border-left: 2px solid black;
+  width: 20mm;
   padding-left: 2mm;
   display: table-cell;
   vertical-align: top;
@@ -122,9 +131,9 @@ body {
 }
 
 .event .lecturer_and_title {
-  padding-left: 10mm;
   vertical-align: top;
   display: table-cell;
+  width: 100%;
   font-weight: 300;
 }
 
