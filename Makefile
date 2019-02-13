@@ -10,7 +10,7 @@ gen:
 pdf:
 	mkdir pdf
 
-gen/book.html gen/identifier.html: gen
+gen/book.html gen/identifier.html: gen schedule.yaml data.json
 	python gen.py
 
 pdf/identifier.pdf:  gen/identifier.html pdf
