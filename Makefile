@@ -1,8 +1,8 @@
 
 .PHONY: book identifier
 
-gen/book.html: book/book.css book/book_template.html 
-gen/identifier.html: /identifier_template.html identifier/identifier.css
+gen/book.html: book/book.css book/book_template.html
+gen/identifier.html: identifier/identifier_template.html identifier/identifier.css
 
 gen:
 	mkdir gen
@@ -10,7 +10,7 @@ gen:
 pdf:
 	mkdir pdf
 
-gen/book.html gen/identifier.html: gen
+gen/book.html gen/identifier.html: gen gen.py data.json schedule.yaml
 	python gen.py
 
 pdf/identifier.pdf:  gen/identifier.html pdf
