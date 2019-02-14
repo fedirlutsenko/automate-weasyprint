@@ -3,6 +3,8 @@ import difflib
 import json
 import yaml
 
+NUMBER_OF_IDENTIFIERS = 200
+
 with open("schedule.yaml", "r") as yaml_file:
     yaml_content = yaml_file.read()
     schedule = yaml.load(yaml_content)
@@ -11,6 +13,8 @@ def gen_identifier(data):
     prefs = data["preferences"]
     name_and_meals = []
     for p in prefs:
+        if not p["payment_accepted"]:
+            continue
         name_and_meals.append({
             "first_name": p["user__first_name"],
             "last_name": p["user__last_name"],
@@ -21,7 +25,20 @@ def gen_identifier(data):
             "dinner_3": p["dinner_3"],
             "breakfast_4": p["breakfast_4"],
         })
-    
+
+    blank_identifiers = NUMBER_OF_IDENTIFIERS - len(name_and_meals)
+    for _ in range(blank_identifiers):
+        name_and_meals.append({
+            "first_name": "..............",
+            "last_name": "..............",
+            "dinner_1": True,
+            "breakfast_2": True,
+            "dinner_3": True,
+            "breakfast_3": True,
+            "dinner_4": True,
+            "breakfast_4": True,
+        })
+
     template = env.get_template('identifier/identifier_template.html')
     string=template.render({"prefs": name_and_meals})
     with open("gen/identifier.html", "w") as text_file:
