@@ -54,16 +54,22 @@ def combine_schedule_and_data(schedule, data):
         })
     return result
 
-def gen_book(schedule, data):
+def gen_book_and_schedule(schedule, data):
     days = combine_schedule_and_data(schedule, data)
-    template = env.get_template('book/book_template.html')
-    string=template.render({"days": days})
+
+    book_template = env.get_template('book/book_template.html')
+    string=book_template.render({"days": days})
     with open("gen/book.html", "w") as text_file:
         text_file.write(string)
+
+    schedule_template = env.get_template('schedule/schedule_template.html')
+    string=schedule_template.render({"days": days})
+    with open("gen/schedule.html", "w") as text_file:
+        text_file.write(string);
     
 env = Environment(loader=FileSystemLoader('./'))
 with open("data.json", "r") as json_file:
     data = json_file.read()
     data = json.loads(data);
     gen_identifier(data);
-    gen_book(schedule, data);
+    gen_book_and_schedule(schedule, data);

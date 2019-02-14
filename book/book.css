@@ -100,6 +100,24 @@ body {
   align-items: stretch;
 }
 
+.contact {
+  margin: 2mm;
+  margin-top: 150mm;
+  border-left: 2px solid black;
+  padding-left: 2mm;
+  font-weight: 300;
+}
+
+.contact b {
+  font-weight: 500;
+}
+
+.place {
+  margin: 2mm;
+  border-left: 2px solid black;
+  padding-left: 2mm;
+}
+
 .event_day {
   break-inside: avoid;
 }

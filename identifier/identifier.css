@@ -1,6 +1,6 @@
 
 @page {
-  size: 110mm 180mm;
+  size: 100mm 180mm;
   marks: crop;
   margin: 0;
 }
@@ -18,7 +18,7 @@ body {
 }
 
 .badge {
-  width: 110mm;
+  width: 100mm;
   align-content: center;
   align-items: center;
   display: flex;
@@ -29,11 +29,11 @@ body {
   box-sizing: border-box;
   text-align: center;
   border-style: solid;
-  border-width: 1px;
+  border-width: 1px 0px;
   margin: 0;
   padding: 3mm;
   height: 100%;
-  width: 104mm;
+  width: 94mm;
 }
 
 .meals {
@@ -42,7 +42,7 @@ body {
   justify-content: space-around;
   align-items: stretch;
   height: 100%;
-  width: 110mm;
+  width: 100mm;
 }
 
 .meals .column {
@@ -53,7 +53,7 @@ body {
 }
 
 .meals .spacer {
-  width: 30mm;
+  width: 20mm;
 }
 
 .meals .column .spacer {
@@ -61,9 +61,9 @@ body {
 }
 
 .name {
-  margin-top: 5mm;
+  margin: auto;
   text-align: center;
-  font-size: 35px;
+  font-size: 30px;
 }
 
 .zosia_logo {

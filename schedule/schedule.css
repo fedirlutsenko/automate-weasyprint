@@ -1,0 +1,64 @@
+
+@page {
+  size: 420mm 594mm;
+  marks: crop;
+  margin: 25mm;
+}
+
+html {
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+.event_day {
+}
+
+.event_table {
+  width: 100%;
+  display: table;
+  border-collapse: collapse;
+}
+
+.event_day .day_name {
+  font-size: 50px;
+  margin: 10mm;
+}
+
+.event {
+  font-size: 30px;
+  display: table-row;
+  border-bottom: solid white 6mm;
+}
+
+.event .hour {
+  border-left: 4px solid black;
+  width: 40mm;
+  padding-left: 2mm;
+  display: table-cell;
+  vertical-align: top;
+  float: left;
+  font-weight: 400;
+}
+
+.event .lecturer_and_title {
+  vertical-align: top;
+  display: table-cell;
+  width: 100%;
+  font-weight: 300;
+}
+
+.event .lecturer {
+  white-space: nowrap;
+}
+
+.plan {
+  columns: 2;
+  column-gap: 20mm;
+}
+
