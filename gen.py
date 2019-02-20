@@ -33,9 +33,9 @@ def gen_identifier(data):
             "last_name": "..............",
             "dinner_1": True,
             "breakfast_2": True,
-            "dinner_3": True,
+            "dinner_2": True,
             "breakfast_3": True,
-            "dinner_4": True,
+            "dinner_3": True,
             "breakfast_4": True,
         })
 
