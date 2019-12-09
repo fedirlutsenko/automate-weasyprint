@@ -63,7 +63,13 @@ body {
 .name {
   margin: auto;
   text-align: center;
-  font-size: 30px;
+  font-size: 35px;
+}
+
+.organization {
+  margin: auto;
+  text-align: center;
+  font-size: 18px;
 }
 
 .zosia_logo {
@@ -88,6 +94,7 @@ img {
 
 .meal_name {
   line-height: 15mm;
+  font-size: 14px;
   text-align: center;
 }
 

@@ -1,23 +1,42 @@
 from jinja2 import Environment, FileSystemLoader
 import difflib
-import json
-import yaml
 
-NUMBER_OF_IDENTIFIERS = 200
+NUMBER_OF_IDENTIFIERS = 11
 
-with open("schedule.yaml", "r") as yaml_file:
-    yaml_content = yaml_file.read()
-    schedule = yaml.load(yaml_content)
+def load_yaml_file(path):
+    import yaml
+    with open(path, "r") as f:
+        file_content = f.read()
+        file_data = yaml.load(file_content)
+        return file_data
 
-def gen_identifier(data):
-    prefs = data["preferences"]
-    name_and_meals = []
-    for p in prefs:
-        if not p["payment_accepted"]:
-            continue
-        name_and_meals.append({
+def load_json_file(path):
+    import json
+    with open(path, "r") as f:
+        file_content = f.read()
+        file_data = json.loads(file_content)
+        return file_data
+
+schedule = load_yaml_file("schedule.yaml");
+data = load_json_file("data.json");
+
+def write_to_file(path, content):
+    with open(path, "w") as f:
+        f.write(content)
+
+def render(template, context):
+    template = env.get_template(template)
+    return template.render(context)
+
+def make_indetifier_context(data):
+    prefs = []
+    print (data)
+    for p in data["preferences"][:11]:
+        print(p)
+        prefs.append({
             "first_name": p["user__first_name"],
             "last_name": p["user__last_name"],
+            "organization": p["organization_id__name"],
             "dinner_1": p["dinner_1"],
             "breakfast_2": p["breakfast_2"],
             "dinner_2": p["dinner_2"],
@@ -26,11 +45,12 @@ def gen_identifier(data):
             "breakfast_4": p["breakfast_4"],
         })
 
-    blank_identifiers = NUMBER_OF_IDENTIFIERS - len(name_and_meals)
+    blank_identifiers = NUMBER_OF_IDENTIFIERS - len(prefs)
     for _ in range(blank_identifiers):
-        name_and_meals.append({
+        prefs.append({
             "first_name": "..............",
             "last_name": "..............",
+            "organization": ".............",
             "dinner_1": True,
             "breakfast_2": True,
             "dinner_3": True,
@@ -38,11 +58,13 @@ def gen_identifier(data):
             "dinner_4": True,
             "breakfast_4": True,
         })
+    
+    return {"prefs": prefs}
 
-    template = env.get_template('identifier/identifier_template.html')
-    string=template.render({"prefs": name_and_meals})
-    with open("gen/identifier.html", "w") as text_file:
-        text_file.write(string)
+def gen_identifier(data):
+    context = make_indetifier_context(data)
+    rendered = render("identifier/identifier_template.html", context)
+    write_to_file("gen/identifier.html", rendered)
 
 def get_lecture_with_close_title(title, data):
     titles = [l["title"] for l in data["lectures"]]
@@ -79,14 +101,17 @@ def gen_book_and_schedule(schedule, data):
     with open("gen/book.html", "w") as text_file:
         text_file.write(string)
 
-    schedule_template = env.get_template('schedule/schedule_template.html')
-    string=schedule_template.render({"days": days})
+    schedule_template_html = env.get_template('schedule/schedule_template.html')
+    string=schedule_template_html.render({"days": days})
     with open("gen/schedule.html", "w") as text_file:
         text_file.write(string);
+
+    schedule_template_md = env.get_template('schedule/schedule_template.md')
+    string=schedule_template_md.render({"days": days})
+    with open("gen/schedule.md", "w") as text_file:
+        text_file.write(string)
+
     
 env = Environment(loader=FileSystemLoader('./'))
-with open("data.json", "r") as json_file:
-    data = json_file.read()
-    data = json.loads(data);
-    gen_identifier(data);
-    gen_book_and_schedule(schedule, data);
+gen_identifier(data)
+gen_book_and_schedule(schedule, data)
