@@ -50,7 +50,10 @@
               {{ e.startTime }}
             </div>
             <div class="lecturer_and_title">
-              {{ e.title }}
+              {{ e.title }} 
+              {% if e.lecturer %}
+                - <em> {{ e.lecturer }} </em>
+              {% endif %}
             </div>
           </div>
         {% endfor %}
@@ -68,7 +71,8 @@
             {{ e.title }}
           </div>
           <div class="lecturer">
-            {{ e.lecturer }} | {{ d.name }} | {{ e.startTime }} | {{ e.duration }}min
+            <em> {{ e.lecturer }} </em>
+            | {{ d.name }} | {{ e.startTime }} | {{ e.duration }}min
           </div>
           <div class="body">
             {% for p in e.abstract %}
