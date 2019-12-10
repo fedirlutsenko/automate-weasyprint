@@ -148,6 +148,13 @@ body {
   font-weight: 400;
 }
 
+.event .duration {
+}
+
+.event .title {
+  font-weight: 400;
+}
+
 .event .lecturer_and_title {
   vertical-align: top;
   display: table-cell;

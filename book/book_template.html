@@ -50,10 +50,11 @@
               {{ e.startTime }}
             </div>
             <div class="lecturer_and_title">
-              {{ e.title }} 
+              <span class="title"> {{ e.title }} </span>
               {% if e.lecturer %}
-                - <em> {{ e.lecturer }} </em>
+                | <em> {{ e.lecturer }} </em>
               {% endif %}
+              | <span class="duration"> {{ e.duration }}&nbsp;min </span>
             </div>
           </div>
         {% endfor %}
