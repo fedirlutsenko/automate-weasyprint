@@ -17,8 +17,8 @@
         </div>
         <div class="zosia_logo"> <img src="../book/zosia.png"> </div>
         <div class="date_and_place">
-          Przesieka <br>
-          21.02.2019 - 24.02.2019
+          Karpacz <br>
+          27.02. - 1.03.2020
         </div>
         <div class="logo_wrapper">
           <div class="uwr_logo"> <img src="../book/logo_UWr.svg"> </div>
@@ -47,14 +47,25 @@
         {% for e in d.events %}
           <div class="event">
             <div class="hour">
-              {{ e.startTime }}
+              {{ e.startTime }} {{ e.endTime }}
             </div>
-            <div class="lecturer_and_title">
-              <span class="title"> {{ e.title }} </span>
-              {% if e.lecturer %}
-                | <em> {{ e.lecturer }} </em>
+            <div class="{% if e.sponsored %} lecturer_and_title_sponsored {% else %} lecturer_and_title {% endif %}">
+              {% if e.sponsored == "silver" or e.sponsored == "gold" %}
+                <div class="recommended"> Wykład polecany </div>
               {% endif %}
-              | <span class="duration"> {{ e.duration }}&nbsp;min </span>
+              <span class="title"> {{ e.title }} </span>
+              <br/>
+              {% if e.lecturer %}
+                <em>
+                  {{ e.lecturer }}
+                  {% if e.coauthor %}
+                    i {{ e.coauthor }}
+                  {% endif %}
+                  {% if e.sponsored %}
+                    z firmy {{ e.organization }}
+                  {% endif %}
+                </em>
+              {% endif %}
             </div>
           </div>
         {% endfor %}
@@ -63,17 +74,37 @@
       {% endfor %}
     </div>
 
-    <div class="abrstract_pages">
+    <div class="abstract_pages">
       {% for d in days %}
+      <div class="abstract_day">
       {% for e in d.events %}
         {% if e.type == "LECTURE" %}
         <div class="abstract">
+          {% if e.sponsored %}
+            {% if e.sponsored == "silver" or e.sponsored == "gold" %}
+              <div class="recommended"> Wykład polecany </div>
+            {% endif %}
+            <div class="title_sponsored">
+              {{ e.title }}
+            </div>
+          {% else %}
           <div class="title">
             {{ e.title }}
           </div>
+          {% endif %}
+          <div>
+            {{ d.name }} {{ e.startTime }} | {{ e.duration }}min
+          </div>
           <div class="lecturer">
-            <em> {{ e.lecturer }} </em>
-            | {{ d.name }} | {{ e.startTime }} | {{ e.duration }}min
+            <em> 
+            {{ e.lecturer }} 
+              {% if e.coauthor %}
+                i {{ e.coauthor }}
+              {% endif %}
+            {% if e.sponsored %}
+              z firmy {{ e.organization }}
+            {% endif %}
+            </em>
           </div>
           <div class="body">
             {% for p in e.abstract %}
@@ -83,6 +114,7 @@
         </div>
         {% endif %}
       {% endfor %}
+      </div>
       {% endfor %}
     </div>
 
@@ -91,9 +123,12 @@
       </div>
       <div class="content">
         <div class="sponsor_title"> Sponsorzy </div>
-        <div class="ppg_logo"> <img src="../book/PPG-logo.png"> </div>
+        <div class="ppg_logo"> </div>
         <div class="fingo_logo"> </div>
-        <div class="siemens_logo"> <img src="../book/SIEMENS-logo.png"> </div>
+        <div class="siemens_logo"> </div>
+        <div class="av_logo"> </div>
+        <div class="qed_logo"> </div>
+        <div class="quantup_logo"> </div>
       </div>
       <div class="bottom">
       </div>

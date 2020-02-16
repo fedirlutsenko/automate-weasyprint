@@ -134,18 +134,19 @@ body {
 }
 
 .event {
+  font-size: 14px;
   display: table-row;
   border-bottom: solid white 3mm;
 }
 
 .event .hour {
   border-left: 2px solid black;
-  width: 20mm;
-  padding-left: 2mm;
+  width: 18mm;
+  padding-left: 1mm;
   display: table-cell;
   vertical-align: top;
   float: left;
-  font-weight: 400;
+  font-weight: 200;
 }
 
 .event .duration {
@@ -155,11 +156,27 @@ body {
   font-weight: 400;
 }
 
+.event .recommended {
+  font-weight: 200;
+  font-size: 12px;
+}
+
 .event .lecturer_and_title {
   vertical-align: top;
   display: table-cell;
   width: 100%;
   font-weight: 300;
+}
+
+.event .lecturer_and_title_sponsored {
+  vertical-align: top;
+  display: table-cell;
+  width: 100%;
+  font-weight: 300;
+}
+
+.event .lecturer_and_title_sponsored .title {
+  font-weight: 600;
 }
 
 .event .lecturer {
@@ -172,6 +189,9 @@ body {
 }
 
 .abstract_pages {
+}
+
+.abstract_day {
   break-before: always;
   break-after: always;
 }
@@ -183,8 +203,26 @@ body {
   margin: 4mm 0mm;
 }
 
+.abstract .logo {
+  position: absolute;
+  left: -40px;
+  height: 25px;
+}
+
+.abstract .title_sponsored {
+  font-size: 18px;
+  font-weight: 600;
+}
+
 .abstract .title {
   font-size: 18px;
+  font-weight: 400;
+}
+
+.abstract .recommended {
+  font-weight: 200;
+  font-size: 14px;
+  padding-bottom: 1mm;
 }
 
 .abstract .lecturer {
@@ -225,27 +263,62 @@ img {
 }
 
 .sponsor_title {
-  margin-top: 13mm;
+  padding: 5mm;
   font-size: 30px;
   text-align: center;
-  font-weight: 300;
+  font-weight: 200;
 }
+
 .fingo_logo {
   background: url(../book/Fingo-logo.svg) no-repeat center center;
   width: 120mm;
+  height: 30mm;
   margin: 0 auto;
-  padding: 15mm;
+  padding: 2mm;
+  background-size: 250px;
 }
 
 .ppg_logo {
-  width: 60mm;
+  background: url(../book/ppg_logo.svg) no-repeat center center;
+  width: 40mm;
+  height: 30mm;
   margin: 0 auto;
-  padding: 10mm;
+  background-size: 230px;
 }
 
 .siemens_logo {
-  width: 100mm;
+  background: url(../book/Siemens_logo.svg) no-repeat center center;
+  width: 80mm;
+  height: 20mm;
+  padding: -2mm;
   margin: 0 auto;
-  padding: 5mm;
+  background-size: 300px;
+}
+
+.qed_logo {
+  background: url(../book/qed-logo-byline.svg) no-repeat center center;
+  width: 80mm;
+  height: 20mm;
+  margin: 0 auto;
+  padding: 2mm;
+  background-size: 280px;
+}
+
+.av_logo{
+  background: url(../book/logo_AVS_ai.svg) no-repeat center center;
+  width: 80mm;
+  height: 10mm;
+  margin: 0 auto;
+  padding: 2mm;
+  background-size: 350px;
+}
+
+.quantup_logo {
+  background: url(../book/quantup_logo.svg) no-repeat center center;
+  width: 70mm;
+  height: 20mm;
+  margin: 0 auto;
+  padding: 2mm;
+  background-size: 250px;
 }
 

@@ -30,19 +30,17 @@ def render(template, context):
 
 def make_indetifier_context(data):
     prefs = []
-    print (data)
     for p in data["preferences"][:11]:
-        print(p)
         prefs.append({
             "first_name": p["user__first_name"],
             "last_name": p["user__last_name"],
             "organization": p["organization_id__name"],
-            "dinner_1": p["dinner_1"],
-            "breakfast_2": p["breakfast_2"],
-            "dinner_2": p["dinner_2"],
-            "breakfast_3": p["breakfast_3"],
-            "dinner_3": p["dinner_3"],
-            "breakfast_4": p["breakfast_4"],
+            "dinner_1": p["dinner_day_1"],
+            "breakfast_2": p["breakfast_day_2"],
+            "dinner_2": p["dinner_day_2"],
+            "breakfast_3": p["breakfast_day_3"],
+            "dinner_3": p["dinner_day_3"],
+            "breakfast_4": p["breakfast_day_4"],
         })
 
     blank_identifiers = NUMBER_OF_IDENTIFIERS - len(prefs)
@@ -53,9 +51,9 @@ def make_indetifier_context(data):
             "organization": ".............",
             "dinner_1": True,
             "breakfast_2": True,
-            "dinner_2": True,
-            "breakfast_3": True,
             "dinner_3": True,
+            "breakfast_3": True,
+            "dinner_4": True,
             "breakfast_4": True,
         })
     
@@ -72,15 +70,32 @@ def get_lecture_with_close_title(title, data):
     best_title_index = titles.index(best_title[0])
     return data["lectures"][best_title_index]
 
+def calculate_end_time(startTime, duration):
+    if duration == 0:
+        return ""
+    x = startTime.split(':')
+    m = (int(x[1]) + duration)
+    h = int(x[0]) + m // 60
+    m = m % 60
+    h = str(h) if len(str(h)) == 2 else "0" + str(h)
+    m = str(m) if len(str(m)) == 2 else "0" + str(m)
+    return str(h) + ":" + str(m)
+
 def combine_schedule_event_and_data(schedule_event, data):
+    end_time = calculate_end_time(schedule_event["startTime"], schedule_event["duration"])
     if schedule_event["type"] != "LECTURE":
-        return schedule_event
+        return {
+            **schedule_event,
+            "endTime": end_time,
+        }
     lecture_data = get_lecture_with_close_title(schedule_event["title"], data)
     return {
         **schedule_event,
+        "endTime": end_time,
         "abstract": lecture_data["abstract"].split('\n'),
         "title": lecture_data["title"],
         "lecturer": lecture_data["author__first_name"] + " " + lecture_data["author__last_name"],
+        "organization": lecture_data["author__organization__name"],
     }
 
 def combine_schedule_and_data(schedule, data):
