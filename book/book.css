@@ -158,7 +158,7 @@ body {
 
 .event .recommended {
   font-weight: 200;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .event .lecturer_and_title {
@@ -220,9 +220,10 @@ body {
 }
 
 .abstract .recommended {
-  font-weight: 200;
-  font-size: 14px;
-  padding-bottom: 1mm;
+  font-weight: 400;
+  font-style: italic;
+  text-align: right;
+  font-size: 16px;
 }
 
 .abstract .lecturer {
@@ -272,27 +273,35 @@ img {
 .fingo_logo {
   background: url(../book/Fingo-logo.svg) no-repeat center center;
   width: 120mm;
-  height: 30mm;
+  height: 20mm;
   margin: 0 auto;
   padding: 2mm;
-  background-size: 250px;
+  background-size: 180px;
+}
+
+.tsg_logo {
+  background: url(../book/TSG_logotyp_RED.svg) no-repeat center center;
+  width: 120mm;
+  height: 20mm;
+  margin: 0 auto;
+  padding: 2mm;
+  background-size: 170px;
 }
 
 .ppg_logo {
   background: url(../book/ppg_logo.svg) no-repeat center center;
   width: 40mm;
-  height: 30mm;
+  height: 25mm;
   margin: 0 auto;
-  background-size: 230px;
+  background-size: 200px;
 }
 
 .siemens_logo {
   background: url(../book/Siemens_logo.svg) no-repeat center center;
   width: 80mm;
-  height: 20mm;
-  padding: -2mm;
+  height: 15mm;
   margin: 0 auto;
-  background-size: 300px;
+  background-size: 200px;
 }
 
 .qed_logo {
@@ -301,7 +310,7 @@ img {
   height: 20mm;
   margin: 0 auto;
   padding: 2mm;
-  background-size: 280px;
+  background-size: 220px;
 }
 
 .av_logo{
@@ -310,15 +319,15 @@ img {
   height: 10mm;
   margin: 0 auto;
   padding: 2mm;
-  background-size: 350px;
+  background-size: 250px;
 }
 
 .quantup_logo {
   background: url(../book/quantup_logo.svg) no-repeat center center;
   width: 70mm;
-  height: 20mm;
+  height: 15mm;
   margin: 0 auto;
   padding: 2mm;
-  background-size: 250px;
+  background-size: 170px;
 }
 
