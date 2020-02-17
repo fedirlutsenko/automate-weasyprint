@@ -18,6 +18,7 @@ def load_json_file(path):
         return file_data
 
 schedule = load_yaml_file("schedule.yaml");
+places = load_yaml_file("places.yaml");
 data = load_json_file("data.json");
 
 def write_to_file(path, content):
@@ -112,7 +113,7 @@ def gen_book_and_schedule(schedule, data):
     days = combine_schedule_and_data(schedule, data)
 
     book_template = env.get_template('book/book_template.html')
-    string=book_template.render({"days": days})
+    string=book_template.render({"days": days, "places": places})
     with open("gen/book.html", "w") as text_file:
         text_file.write(string)
 
@@ -121,9 +122,9 @@ def gen_book_and_schedule(schedule, data):
     with open("gen/schedule.html", "w") as text_file:
         text_file.write(string);
 
-    web_schedule_template = env.get_template('schedule/web_schedule_template.html')
-    string=web_schedule_template.render({"days": days})
-    with open("gen/web_schedule.html", "w") as text_file:
+    schedule_template_md = env.get_template('schedule/schedule_template.md')
+    string=schedule_template_md.render({"days": days})
+    with open("gen/schedule.md", "w") as text_file:
         text_file.write(string)
 
     
