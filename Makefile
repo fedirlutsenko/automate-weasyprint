@@ -1,10 +1,10 @@
 
-.PHONY: book identifier schedule all md
+.PHONY: book identifier schedule all web_schedule
 
 gen/book.html: book/book.css book/book_template.html 
 gen/identifier.html: identifier/identifier_template.html identifier/identifier.css
 gen/schedule.html: schedule/schedule_template.html schedule/schedule.css
-gen/schedule.md: schedule/schedule_template.md
+web_schedule: schedule/web_schedule_template.html
 
 gen:
 	mkdir gen
@@ -12,7 +12,7 @@ gen:
 pdf:
 	mkdir pdf
 
-gen/book.html gen/identifier.html gen/schedule.html gen/schedule.md: \
+gen/book.html gen/identifier.html gen/schedule.html web_schedule: \
 gen schedule.yaml data.json gen.py identifier/identifier_template.html
 	python3 gen.py
 
@@ -30,6 +30,8 @@ book: pdf/book.pdf
 identifier: pdf/identifier.pdf
 
 schedule: pdf/schedule.pdf
+
+webschedule: 
 
 all: book schedule identifier
 

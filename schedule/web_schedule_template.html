@@ -1,0 +1,193 @@
+
+
+<style>
+
+    .card-top {
+      border-top: none;
+      border-bottom: 1px solid rgba(160,160,160,0.2);
+      font-weight: 600;
+    }
+    .flexbox {
+      display: flex;
+    }
+    .flex-center-align { 
+      justify-content: center;
+    }
+    .schedule-sponsor-logo {
+      width: 150px;
+    }
+    .golden-sponsor {
+      background-color: #c5c2c2 !important;
+    }
+    .silver-sponsor {
+      background-color: #c5c2c2 !important;
+    }
+    .card {
+      min-width: 450px;
+    }
+    
+</style>
+    
+    
+    
+
+{% for d in days %}
+{% for e in d.events %}
+
+{% if e.type != "LECTURE" %}
+{% elif e.sponsored == "gold" %}
+<!--Złoty-->
+<div class="row">
+    <div class="col l12 m12 s12">
+      <div class="card">
+          <div class="card-action card-top flexbox golden-sponsor">
+            <div class="col l4 m4 s4 valign-wrapper left-align">
+                {{ d.name }}, {{ e.startTime }} - {{ e.endTime }}
+            </div>
+            <div class="col l4 m4 s4 valign-wrapper flex-center-align">
+                Wykład Polecany
+            </div>
+            <div class="col l4 m4 s4 right-align">
+                {% if e.organization == "Fingo" %}
+                <img src="https://zosia-storage.s3.eu-central-1.amazonaws.com/logo-fingo.svg" class="schedule-sponsor-logo">
+                {% else %}
+                <img src="https://zosia-storage.s3.eu-central-1.amazonaws.com/TSG_logotyp_RED.svg" class="schedule-sponsor-logo">
+                {% endif %}
+            </div>
+          </div>
+          <div class="card-content">
+            <span class="card-title">
+            <strong>
+              {{ e.title }}
+            </strong>
+            </span>
+            {% for p in e.abstract %}
+            <p>
+               {{ p }}
+            </p>
+            {% endfor %}
+          </div>
+          <div class="card-action">
+            <strong>
+              {{ e.lecturer }} 
+              {% if e.coauthor %}
+                i {{ e.coauthor }}
+              {% endif %}
+              z firmy <b> {{ e.organization }} </b>
+            </strong>
+          </div>
+      </div>
+    </div>
+</div>
+{% elif e.sponsored == "silver" %}
+
+    <!--Srebrny-->
+    <div class="row">
+       <div class="col l12 m12 s12">
+          <div class="card">
+             <div class="card-action card-top flexbox silver-sponsor">
+                <div class="col l6 m6 s6 valign-wrapper left-align">
+                  {{ d.name }}, {{ e.startTime }} - {{ e.endTime }}
+                </div>
+                <div class="col l6 m6 s6 valign-wrapper flex-center-align">
+                   Wykład Polecany
+                </div>
+             </div>
+             <div class="card-content">
+                <span class="card-title">
+                <strong>
+                  {{ e.title }}
+                </strong>
+                </span>
+            {% for p in e.abstract %}
+            <p>
+               {{ p }}
+            </p>
+            {% endfor %}
+             </div>
+             <div class="card-action">
+            <strong>
+              {{ e.lecturer }} 
+              {% if e.coauthor %}
+                i {{ e.coauthor }}
+              {% endif %}
+              z firmy <b> {{ e.organization }} </b>
+            </strong>
+             </div>
+          </div>
+       </div>
+    </div>
+{% elif e.sponsored == "bronze" %}
+
+    <!--Brązowy-->
+    <div class="row">
+       <div class="col l12 m12 s12">
+          <div class="card">
+             <div class="card-action card-top flexbox">
+                <div class="col l12 m12 s12 valign-wrapper left-align">
+                  {{ d.name }}, {{ e.startTime }} - {{ e.endTime }}
+                </div>
+             </div>
+             <div class="card-content">
+                <span class="card-title">
+                <strong>
+                  {{ e.title }}
+                </strong>
+                </span>
+            {% for p in e.abstract %}
+            <p>
+               {{ p }}
+            </p>
+            {% endfor %}
+             </div>
+             <div class="card-action">
+            <strong>
+              {{ e.lecturer }} 
+              {% if e.coauthor %}
+                i {{ e.coauthor }}
+              {% endif %}
+              z firmy <b> {{ e.organization }} </b>
+            </strong>
+             </div>
+          </div>
+       </div>
+    </div>
+
+{% else %}
+
+    <!--Żaden-->
+    <div class="row">
+       <div class="col l12 m12 s12">
+          <div class="card">
+             <div class="card-action card-top flexbox">
+                <div class="col l12 m12 s12 valign-wrapper left-align">
+                  {{ d.name }}, {{ e.startTime }} - {{ e.endTime }}
+                </div>
+             </div>
+             <div class="card-content">
+                <span class="card-title">
+                  {{ e.title }}
+                </span>
+            {% for p in e.abstract %}
+            <p>
+               {{ p }}
+            </p>
+            {% endfor %}
+             </div>
+             <div class="card-action">
+            <strong>
+              {{ e.lecturer }} 
+              {% if e.coauthor %}
+                i {{ e.coauthor }}
+              {% endif %}
+            </strong>
+             </div>
+          </div>
+       </div>
+    </div>
+
+{% endif %}
+{% endfor %}
+{% endfor %}
+
+

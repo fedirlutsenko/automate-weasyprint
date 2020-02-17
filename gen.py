@@ -121,9 +121,9 @@ def gen_book_and_schedule(schedule, data):
     with open("gen/schedule.html", "w") as text_file:
         text_file.write(string);
 
-    schedule_template_md = env.get_template('schedule/schedule_template.md')
-    string=schedule_template_md.render({"days": days})
-    with open("gen/schedule.md", "w") as text_file:
+    web_schedule_template = env.get_template('schedule/web_schedule_template.html')
+    string=web_schedule_template.render({"days": days})
+    with open("gen/web_schedule.html", "w") as text_file:
         text_file.write(string)
 
     
