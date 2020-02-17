@@ -24,7 +24,7 @@ restaurants:
         distance: 230m
         time: 4min
         address: ul. Piastowska 1
-        badge: "najtaniej"
+        # badge: "najtaniej"
     -
         name: Oro Cavallo Restauracja-Pizzeria-Noclegi
         distance: 220m
