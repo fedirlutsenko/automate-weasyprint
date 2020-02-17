@@ -88,11 +88,15 @@
               <div class="recommended"> Wykład polecany </div>
             {% endif %}
             <div class="title_sponsored">
-              {{ e.title }}
+              {% if e.sponsored == "silver" or e.sponsored == "gold" %}
+                <u> {{ e.title }} </u>
+              {% else %}
+                {{ e.title }}
+              {% endif %}
             </div>
           {% else %}
           <div class="title">
-            {{ e.title }}
+              {{ e.title }}
           </div>
           {% endif %}
           <div>
@@ -120,6 +124,83 @@
       </div>
       {% endfor %}
     </div>
+
+    <div class="fun_pages">
+      <h2> Pobliskie miejsca warte odwiedzenia </h2>
+      <h3> Restauracje: </h3>
+      <ul>
+        <li>
+            Manufaktura (4.3/5) $$ - 58m / 1min - Konstytucji 3-ego Maja 57
+        </li>
+        <li>
+            Restauracja u Petiego (4.7/5) $$ - 190m / 3min - Parkowa 10
+        </li>
+        <li>
+            Restauracja KOLOROWA (4.6/5) - 150m / 2min - hotel Kolorowa, Konstytucji 3-go Maja 58
+        </li>
+        <li>
+            Central Bar (4.4/5) $$ - 240m / 3min - Konstytucji 3-ego Maja 49
+        </li>
+        <li>
+            Pierogowo (4.6/5) $ - 230m / 4min - Piastowska 1
+        </li>
+        <li>
+            Oro Cavallo Restauracja-Pizzeria-Noclegi (4.5/5) $$ - 220m / 4min - Konstytucji 3 Maja 67
+        </li>
+        <li>
+            Chata Karkonoska (4.4/5) $$ - 450m / 7min - Wolna 4             
+        </li>
+      </ul>
+
+      <h3> Atrakcje: </h3>
+
+      <ul>
+      <li>
+      Karkonoskie Tajemnice (4.5/5) - 60m / 1min - Mickiewicza 1A
+      Karkonoskie Tajemnice, to podziemna, multimedialna ekspozycja przedstawiająca legendarny i historyczny świat Karkonoszy oraz ich władcy Ducha Gór, 
+      Ulgowy - 17 zł, Normalny - 21 zł
+        </li>
+        <li>
+      Prywatne Muzeum Konsol Gier Video (4.8/5) - 180m / 3min - Mickiewicza 11,
+      Muzeum gier - 16zł, Muzeum Lego - 18zł, Oba muzea - 28zł
+        </li>
+        <li>
+      Centrum Karpacza (4.4/5) - 400m / 4m - Konstytucji 3-ego Maja,
+      Urocze historyczne centrum miasta, idealne miejsce do spacerów.
+        </li>
+        <li>
+      Zapora na Łomnicy w Karpaczu (4.6/5) - 650m / 10min - Główny Szlak Sudecki, Punkt widokowy
+        </li>
+        <li>
+      Muzeum Zabawek w Karpaczu (4.5/5) - 1.3km / 14min - Kolejowa 3
+        </li>
+        <li>
+      Kościół Wang (4.6/5) - 3km / 50min - Na Śnieżkę 8, 
+      Drewniany ewangelicki kościół z 12 wieku, przeniesiony do Karpacza z Norwegii w 1842 roku.
+        </li>
+        <li>
+      Hotel Gołębiewski - aquapark (4.4/5) - 2.5 km / 37 min - Karkonoska 14
+        </li>
+      </ul>
+
+      <h3> Szczyty: </h3>
+      <ul>
+
+        <li>
+Śnieżka (4.7/5) - 7.6km / 2h 29min
+        </li>
+        <li>
+Skalny Stół (4.9/5) - 5.8km / 1h 47min
+        </li>
+        <li>
+Saneczkowa Góra (4.3/5) - 1.5km / 22min - Myśliwska 13
+        </li>
+      </ul>
+    </div>
+
+    <div class="blank"> 
+    </div>
+    <div class="blank"> </div>
 
     <div class="title_page">
       <div class="top">

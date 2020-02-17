@@ -193,7 +193,6 @@ body {
 
 .abstract_day {
   break-before: always;
-  break-after: always;
 }
 
 .abstract {
@@ -221,9 +220,8 @@ body {
 
 .abstract .recommended {
   font-weight: 400;
-  font-style: italic;
-  text-align: right;
   font-size: 16px;
+  font-style: italic;
 }
 
 .abstract .lecturer {
@@ -244,6 +242,12 @@ body {
 .abstract .body p {
   text-indent: 5mm;
   margin: 2mm 0mm;
+}
+
+.fun_pages {
+  font-size: 13px;
+  font-weight: 300;
+  text-align: justify;
 }
 
 img {

@@ -34,7 +34,7 @@ def make_indetifier_context(data):
         prefs.append({
             "first_name": p["user__first_name"],
             "last_name": p["user__last_name"],
-            "organization": p["organization_id__name"],
+            "organization": p["organization__name"],
             "dinner_1": p["dinner_day_1"],
             "breakfast_2": p["breakfast_day_2"],
             "dinner_2": p["dinner_day_2"],
@@ -95,7 +95,7 @@ def combine_schedule_event_and_data(schedule_event, data):
         "abstract": lecture_data["abstract"].split('\n'),
         "title": lecture_data["title"],
         "lecturer": lecture_data["author__first_name"] + " " + lecture_data["author__last_name"],
-        "organization": lecture_data["author__organization__name"],
+        "organization": lecture_data["author__userpreferences__organization__name"],
     }
 
 def combine_schedule_and_data(schedule, data):
