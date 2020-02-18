@@ -34,7 +34,7 @@ attractions:
     distance: 60 m
     time: 1 min
     address: Karpacz, ul. Mickiewicza 1A
-    description: Podziemna multimedialna ekspozycja przedstawiająca legendarny i historyczny świat Karkonoszy oraz ich władcy Ducha Gór.
+    description: Podziemna multimedialna ekspozycja przedstawiająca legendarny i&nbsp;historyczny świat Karkonoszy oraz ich władcy Ducha Gór.
     pricing: 
       - bilet ulgowy 17 zł
       - bilet normalny 21 zł
@@ -42,7 +42,7 @@ attractions:
     distance: 180 m
     time: 3 min
     address: Karpacz, ul. Mickiewicza 11
-    description: Muzeum Gier Video prezentuje ponad 47 lat histori sprzętu i gier oraz 15 stanowisk na których zagrasz w retro gry.
+    description: Muzeum Gier Video prezentuje ponad 47 lat histori sprzętu i&nbsp;gier oraz 15 stanowisk na których zagrasz w retro gry.
     pricing: 
       - muzeum gier 16 zł 
       - muzeum Lego 18 zł
@@ -61,7 +61,7 @@ attractions:
     distance: 3 km
     time: 50 min
     address: Karpacz Górny, ul. Na Śnieżkę 8
-    description: Norweski kościół z XII w. zbudowany z drewna sosnowego, zakupiony w 1841 przez króla Prus i sprowadzony w częściach do Karpacza, odbudowany w latach 1824 - 1844.
+    description: Norweski kościół z XII w. zbudowany z drewna sosnowego, zakupiony w 1841 przez króla Prus i&nbsp;sprowadzony w częściach do Karpacza, odbudowany w latach 1824 - 1844.
   -    
     name: Aquapark w Hotelu Gołębiewskim
     distance: 2.5 km
@@ -89,7 +89,7 @@ hiking:
     time: 3 h 0 min
   - name: Skalny Stół 
     height: 1281 m n.p.m.
-    distance: 6.3km
+    distance: 6.3 km
     time: 2 h 45 min
   - name: Przełęcz Karkonoska 
     height: 1198 m n.p.m.
