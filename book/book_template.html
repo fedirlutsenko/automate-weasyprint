@@ -148,9 +148,9 @@
 
         {% for h in places.hiking %}
         <li class="location hiking">
-          <div class="row location-title">
+          <div class="row flex-split location-title">
             <span class="name fw-400">{{ h.name }}</span>
-            <div class="row flex-end fw-200">
+            <div class="row fw-200">
               <span class="distance">{{ h.distance }}</span>
               <span class="time">{{ h.time }}</span>    
               <span class="height">{{ h.height }}</span>

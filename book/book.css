@@ -338,7 +338,6 @@ img {
 /* layout */
 .locations-page .row {
   display: flex;
-  justify-content: space-between;
 } 
 .locations-page .flex-right {
   justify-content: flex-end;
@@ -400,18 +399,19 @@ img {
   margin-bottom: 0.8rem;
 } 
 .locations-page .hiking .distance {
-  width: 5.6cm;
+  width: 3cm;
   text-align: right;
 }
 .locations-page .hiking .height {
-  width: 7.5cm;
+  width: 5.3cm;
   text-align: right;
 }
 .locations-page .hiking .time {
-  width: 5.5cm;
+  width: 3.7cm;
   text-align: right;
 }
 .locations-page .hiking .name  {
+  width: 4cm;
   text-align: left;
   overflow-wrap: normal;
 }
