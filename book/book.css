@@ -346,17 +346,28 @@ img {
 .locations-page .flex-left {
   justify-content: flex-start;
 } 
+.locations-page .flex-split {
+  justify-content: space-between;
+} 
 .locations-page .col {
   display: flex;
   flex-direction: column;
 } 
-.locations-page .no-bullet-points {
-  list-style-type: none;
-  padding: 0;
-} 
 
 /* font */
-.locations-page .boldier {
+.locations-page .fw-200 {
+  font-weight: 200;
+} 
+.locations-page .fw-300 {
+  font-weight: 300;
+} 
+.locations-page .fw-400 {
+  font-weight: 400;
+} 
+.locations-page .fw-500 {
+  font-weight: 500;
+} 
+.locations-page .fw-600 {
   font-weight: 600;
 } 
 .locations-page .grayout {
@@ -368,22 +379,39 @@ img {
 } 
 
 /* module */
+.locations-page ul{
+  list-style-type: none;
+  padding: 0;
+}
+.locations-page .places-title{
+  margin-bottom: 1.7rem;
+}
+.locations-page .places-subtitle{
+  margin: 0 1.45rem;
+}
+.locations-page .places-subtitle:first-child{
+  margin-top: 0;
+}
+.locations-page ul{
+  list-style-type: none;
+  padding: 0;
+}
 .locations-page .location {
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 } 
-.locations-page .hiking .location-distance {
+.locations-page .hiking .distance {
   width: 5.6cm;
   text-align: right;
 }
-.locations-page .hiking .location-height {
+.locations-page .hiking .height {
   width: 7.5cm;
   text-align: right;
 }
-.locations-page .hiking .location-time {
+.locations-page .hiking .time {
   width: 5.5cm;
   text-align: right;
 }
-.locations-page .hiking .location-name  {
+.locations-page .hiking .name  {
   text-align: left;
   overflow-wrap: normal;
 }
