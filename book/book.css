@@ -384,10 +384,10 @@ img {
   padding: 0;
 }
 .locations-page .places-title{
-  margin-bottom: 1.7rem;
+  margin-bottom: 1.85rem;
 }
 .locations-page .places-subtitle{
-  margin: 0 1.45rem;
+  margin: 1.45rem 0;
 }
 .locations-page .places-subtitle:first-child{
   margin-top: 0;
