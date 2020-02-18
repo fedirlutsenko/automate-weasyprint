@@ -1,5 +1,4 @@
 
-
 <style>
 
     .card-top {
@@ -17,7 +16,7 @@
       width: 150px;
     }
     .golden-sponsor {
-      background-color: #c5c2c2 !important;
+      background-color: #dfe089 !important;
     }
     .silver-sponsor {
       background-color: #c5c2c2 !important;
@@ -25,6 +24,9 @@
     .card {
       min-width: 450px;
     }
+   .container {
+      min-width: 550px;
+   }
     
 </style>
     
@@ -42,7 +44,7 @@
       <div class="card">
           <div class="card-action card-top flexbox golden-sponsor">
             <div class="col l4 m4 s4 valign-wrapper left-align">
-                {{ d.name }}, {{ e.startTime }} - {{ e.endTime }}
+                {{ d.session_name }}, {{ e.startTime }} - {{ e.endTime }}
             </div>
             <div class="col l4 m4 s4 valign-wrapper flex-center-align">
                 Wykład Polecany
@@ -87,7 +89,7 @@
           <div class="card">
              <div class="card-action card-top flexbox silver-sponsor">
                 <div class="col l6 m6 s6 valign-wrapper left-align">
-                  {{ d.name }}, {{ e.startTime }} - {{ e.endTime }}
+                  {{ d.session_name }}, {{ e.startTime }} - {{ e.endTime }}
                 </div>
                 <div class="col l6 m6 s6 valign-wrapper flex-center-align">
                    Wykład Polecany
@@ -125,7 +127,7 @@
           <div class="card">
              <div class="card-action card-top flexbox">
                 <div class="col l12 m12 s12 valign-wrapper left-align">
-                  {{ d.name }}, {{ e.startTime }} - {{ e.endTime }}
+                  {{ d.session_name }}, {{ e.startTime }} - {{ e.endTime }}
                 </div>
              </div>
              <div class="card-content">
@@ -161,7 +163,7 @@
           <div class="card">
              <div class="card-action card-top flexbox">
                 <div class="col l12 m12 s12 valign-wrapper left-align">
-                  {{ d.name }}, {{ e.startTime }} - {{ e.endTime }}
+                  {{ d.session_name }}, {{ e.startTime }} - {{ e.endTime }}
                 </div>
              </div>
              <div class="card-content">
