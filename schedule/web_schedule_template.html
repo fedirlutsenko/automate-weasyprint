@@ -1,4 +1,5 @@
 
+
 <style>
 
     .card-top {
@@ -16,7 +17,7 @@
       width: 150px;
     }
     .golden-sponsor {
-      background-color: #dfe089 !important;
+      background-color: #f6b000 !important;
     }
     .silver-sponsor {
       background-color: #c5c2c2 !important;
@@ -24,16 +25,20 @@
     .card {
       min-width: 450px;
     }
-   .container {
+   .container, nav {
       min-width: 550px;
    }
+   .day-text { 
+      font-size: 34px;
+      font-weight: 400;
+      border-bottom: 1px #A0A8A4 solid;
+  }
     
 </style>
-    
-    
-    
 
 {% for d in days %}
+
+<div class="left-align day-text"> {{ d.name }}</div>
 {% for e in d.events %}
 
 {% if e.type != "LECTURE" %}
