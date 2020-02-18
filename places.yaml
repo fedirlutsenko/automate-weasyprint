@@ -19,7 +19,6 @@ restaurants:
     distance: 230m
     time: 4min
     address: ul. Piastowska 1
-    # badge: "najtaniej"
   - name: Oro Cavallo Restauracja-Pizzeria-Noclegi
     distance: 220m
     time: 4min
@@ -83,6 +82,7 @@ hiking:
     height: 1603 m n.p.m.
     distance: 7.8km
     time: 3h 30min
+    mayBeClosed: true
   - name: Kocioł Wielkiego Stawu 
     height: 1406 m n.p.m.
     distance: 6.5km

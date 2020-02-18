@@ -335,62 +335,54 @@ img {
   background-size: 170px;
 }
 
+/* layout */
 .locations-page .row {
   display: flex;
   justify-content: space-between;
+} 
+.locations-page .flex-right {
+  justify-content: flex-end;
+} 
+.locations-page .flex-left {
+  justify-content: flex-start;
 } 
 .locations-page .col {
   display: flex;
   flex-direction: column;
 } 
-
-.locations-page .locations {
+.locations-page .no-bullet-points {
   list-style-type: none;
   padding: 0;
 } 
 
-.locations-page .attraction .location-title , .locations-page .restaurant .location-title, .boldier {
+/* font */
+.locations-page .boldier {
   font-weight: 600;
 } 
-
-.locations-page .location-address {
+.locations-page .grayout {
   font-style: italic;
   color: #646464;
 } 
-
-.locations-page .location-badge {
-  color: #b60404;
-} 
-
-.locations-page .location {
-  margin-bottom: 1rem;
-} 
-
-.locations-page .location-effort {
-  display: flex;
-  flex-direction: row;
-  font-size: 0.9rem;
-} 
-
-.locations-page .location-effort .location-distance {
-  width: 5.6cm;
-  text-align: right;
-}
-
-.locations-page .location-effort .location-height {
-  width: 7.5cm;
-  text-align: right;
-}
-
-.locations-page .location-effort .location-time {
-  width: 5.5cm;
-  text-align: right;
-}
-
 .locations-page .smaller {
   font-size: 0.75rem;
 } 
 
+/* module */
+.locations-page .location {
+  margin-bottom: 1rem;
+} 
+.locations-page .hiking .location-distance {
+  width: 5.6cm;
+  text-align: right;
+}
+.locations-page .hiking .location-height {
+  width: 7.5cm;
+  text-align: right;
+}
+.locations-page .hiking .location-time {
+  width: 5.5cm;
+  text-align: right;
+}
 .locations-page .hiking .location-name  {
   text-align: left;
   overflow-wrap: normal;
