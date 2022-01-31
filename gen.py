@@ -7,7 +7,7 @@ def load_yaml_file(path):
     import yaml
     with open(path, "r") as f:
         file_content = f.read()
-        file_data = yaml.load(file_content)
+        file_data = yaml.load(file_content, Loader=yaml.Loader)
         return file_data
 
 def load_json_file(path):
@@ -97,7 +97,7 @@ def combine_schedule_event_and_data(schedule_event, data):
         "abstract": lecture_data["abstract"].split('\n'),
         "title": lecture_data["title"],
         "lecturer": lecture_data["author__first_name"] + " " + lecture_data["author__last_name"],
-        "organization": lecture_data["author__userpreferences__organization__name"],
+        "organization": lecture_data["author__preferences__organization__name"],
     }
 
 def combine_schedule_and_data(schedule, data):
