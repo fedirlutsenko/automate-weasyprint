@@ -274,65 +274,31 @@ img {
   font-weight: 200;
 }
 
-.fingo_logo {
-  background: url(../book/Fingo-logo.svg) no-repeat center center;
-  width: 120mm;
-  height: 20mm;
+.fingo_logo,.tsg_logo,.siemens_logo,.antmicro_logo{
   margin: 0 auto;
-  padding: 2mm;
-  background-size: 180px;
+  width: 158mm;
+  height: 35mm;
+}
+
+.fingo_logo {
+  background: url(../book/fingo.svg) no-repeat center center;
+  background-size: 70%;
 }
 
 .tsg_logo {
   background: url(../book/TSG_logotyp_RED.svg) no-repeat center center;
-  width: 120mm;
-  height: 20mm;
-  margin: 0 auto;
-  padding: 2mm;
-  background-size: 170px;
-}
-
-.ppg_logo {
-  background: url(../book/ppg_logo.svg) no-repeat center center;
-  width: 40mm;
-  height: 25mm;
-  margin: 0 auto;
-  background-size: 200px;
+  height: 45mm;
+  background-size: 65%;
 }
 
 .siemens_logo {
   background: url(../book/Siemens_logo.svg) no-repeat center center;
-  width: 80mm;
-  height: 15mm;
-  margin: 0 auto;
-  background-size: 200px;
+  background-size: 70%;
 }
 
-.qed_logo {
-  background: url(../book/qed-logo-byline.svg) no-repeat center center;
-  width: 80mm;
-  height: 20mm;
-  margin: 0 auto;
-  padding: 2mm;
-  background-size: 220px;
-}
-
-.av_logo{
-  background: url(../book/logo_AVS_ai.svg) no-repeat center center;
-  width: 80mm;
-  height: 10mm;
-  margin: 0 auto;
-  padding: 2mm;
-  background-size: 250px;
-}
-
-.quantup_logo {
-  background: url(../book/quantup_logo.svg) no-repeat center center;
-  width: 70mm;
-  height: 15mm;
-  margin: 0 auto;
-  padding: 2mm;
-  background-size: 170px;
+.antmicro_logo {
+  background: url(../book/antmicro-color.svg) no-repeat center center;
+  background-size: 55%;
 }
 
 /* layout */
