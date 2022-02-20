@@ -309,6 +309,7 @@ img {
 }
 
 .locations-page {
+  break-before: always;
   break-inside: avoid;
 }
 
