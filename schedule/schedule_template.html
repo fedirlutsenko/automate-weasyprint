@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <link href="../schedule/schedule.css" rel="stylesheet">
-    <title>Board ticket</title>
-    <meta name="description" content="Board ticket">
+    <title>Schedule</title>
+    <meta name="description" content="Schedule">
   </head>
 
   <body>
@@ -17,12 +17,23 @@
         </div>
         <div class="event_table">
         {% for e in d.events %}
-          <div class="event">
+          <div class="event {{e.sponsor_highlight}}">
             <div class="hour">
-              {{ e.startTime }}
+              {{ e.startTime }} {{ e.endTime }}
             </div>
             <div class="lecturer_and_title">
               {{ e.title }}
+              {% if e.lecturer %}
+                <br/> <span class="lecturer"> {{ e.lecturer }}
+                {% if e.coauthor %}
+                  i {{ e.coauthor }}
+                {% endif %}
+                {% if e.sponsored %}
+                z firmy <b> {{ e.organization }} </b>
+                {% endif %}
+                </span>
+              {% endif %}
+              </em>
             </div>
           </div>
         {% endfor %}

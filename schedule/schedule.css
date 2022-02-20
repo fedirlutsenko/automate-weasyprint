@@ -16,10 +16,13 @@ body {
   margin: 0;
 }
 
-.event_day {
+.event.gold_sponsor_highlight .lecturer_and_title {
+  background-color: #ffffff60;
+  font-weight: 600;
 }
 
 .event_table {
+  page-break-inside: avoid;
   width: 100%;
   display: table;
   border-collapse: collapse;
@@ -31,30 +34,31 @@ body {
 }
 
 .event {
-  font-size: 30px;
+  font-size: 26px;
   display: table-row;
-  border-bottom: solid white 6mm;
+  border-bottom: solid white 4mm;
 }
 
 .event .hour {
   border-left: 4px solid black;
-  width: 40mm;
+  width: 30mm;
   padding-left: 2mm;
   display: table-cell;
   vertical-align: top;
   float: left;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 .event .lecturer_and_title {
   vertical-align: top;
   display: table-cell;
   width: 100%;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .event .lecturer {
-  white-space: nowrap;
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .plan {
