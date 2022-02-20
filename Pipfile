@@ -6,9 +6,9 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-weasyprint = "*"
 jinja2 = "*"
 pyyaml = "*"
+weasyprint = "==44"
 
 [requires]
 python_version = "3.8"
