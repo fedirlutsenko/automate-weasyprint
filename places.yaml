@@ -1,0 +1,47 @@
+restaurants:
+  - name: Przy skałkach
+    distance: 1.1 km
+    time: 12 min
+    address: ul. Kamienna 10
+  - name: Górska Chata
+    distance: 1.2 km
+    time: 14 min
+    address: ul. Kamienna 8a
+  - name: Olympia
+    distance: 2 km
+    time: 24 min
+    address: ul. Karkonoska 1
+  - name: Pod Wesołym Misiem bar
+    distance: 2 km
+    time: 27 min
+    address: ul. Turystyczna 8
+  - name: Idylla
+    distance: 2 km
+    time: 27 min
+    address: ul. Turystyczna 10
+  - name: Tawerna "Bartolini" w Chybotku
+    distance: 2.7 km
+    time: 39 min
+    address: ul. Karkonoska 44
+
+attractions:
+  - name: Kamień Waloński
+    distance: 2.2 km
+    time: 30 min
+    address: Przesieka, Karkonoska 37
+    description: Zespół skał znajdujący się pomiędzy remizą strażacką, a dawnym barem Pod Lipami. Na jednej ze skał wyraźnie widoczne jest wgłębienie w kształcie ludzkiej postaci.
+
+hiking:
+  - name: Skałki Nad Przesieką
+    height: 820 m n.p.m.
+    distance: 4.1 km
+    time: 1h
+  - name: Wodospad Podgórnej
+    height: 547 m n.p.m.
+    distance: 2.3 km
+    time: 35 min
+
+  - name: Niedźwiedzie skałki
+    height: 620 m n.p.m.
+    distance: 900 m
+    time: 15 min
