@@ -35,15 +35,8 @@
 {% endfor %}
 
 <script>
-
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.collapsible');
-    var instances = M.Collapsible.init(elems, options);
-  });
-
-  // Or with jQuery
-
   $(document).ready(function(){
     $('.collapsible').collapsible();
+    $('.collapsible').find('> li > .collapsible-disabled').off('click.collapse').css('pointer-events', 'none');
   });
 </script>
