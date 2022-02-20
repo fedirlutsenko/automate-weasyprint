@@ -1,106 +1,47 @@
 restaurants:
-  - name: Manufaktura
-    distance: 58 m
-    time: 1 min
-    address: ul. Konstytucji 3 Maja 57
-  - name: Restauracja u Petiego
-    distance: 190 m
-    time: 3 min
-    address: ul. Parkowa 10 
-  - name: Restauracja KOLOROWA
-    distance: 150 m
-    time: 2 min
-    address: ul. Konstytucji 3 Maja 58
-  - name: Central Bar
-    distance: 240 m
-    time: 3 min
-    address: ul. Konstytucji 3 Maja 49
-  - name: Pierogowo
-    distance: 230 m
-    time: 4 min
-    address: ul. Piastowska 1
-  - name: Oro Cavallo Restauracja-Pizzeria-Noclegi
-    distance: 220 m
-    time: 4 min
-    address: ul. Konstytucji 3 Maja 67
-  - name: Chata Karkonoska
-    distance: 450 m
-    time: 7 min
-    address: ul. Wolna 4
-        
-    
-attractions:
-  - name: Karkonoskie Tajemnice
-    distance: 60 m
-    time: 1 min
-    address: Karpacz, ul. Mickiewicza 1A
-    description: Podziemna multimedialna ekspozycja przedstawiająca legendarny i&nbsp;historyczny świat Karkonoszy oraz ich władcy Ducha Gór.
-    pricing: 
-      - bilet ulgowy 17 zł
-      - bilet normalny 21 zł
-  - name: Prywatne Muzeum Konsol Gier Video
-    distance: 180 m
-    time: 3 min
-    address: Karpacz, ul. Mickiewicza 11
-    description: Muzeum Gier Video prezentuje ponad 47 lat histori sprzętu i&nbsp;gier oraz 15 stanowisk na których zagrasz w retro gry.
-    pricing: 
-      - muzeum gier 16 zł 
-      - muzeum Lego 18 zł
-      - dwa muzea 28 zł
-  - name: Zapora na Łomnicy
-    distance: 650 m
-    time: 10 min
-    address: Karpacz, dojście od ul. Konstytucji 3 Maja Głównym Szlakiem Sudeckim
-  - name: Miejskie Muzeum Zabawek
-    distance: 1.3 km
-    time: 15 min
-    address: Karpacz, ul. Kolejowa 3
-    description: Muzeum ukazuje przekrój zabawkarstwa obejmujący około 300 lat, od figurek szopkowych, poprzez porcelanowe lalki, aż po zabawki z XX w. Wszystkie zabawki pochodzą z kolekcji Henryka Tomaszewskiego - założyciela Teatru Pantomimy Wrocławskiej.
-  -    
-    name: Kościół Wang
-    distance: 3 km
-    time: 50 min
-    address: Karpacz Górny, ul. Na Śnieżkę 8
-    description: Norweski kościół z XII w. zbudowany z drewna sosnowego, zakupiony w 1841 przez króla Prus i&nbsp;sprowadzony w częściach do Karpacza, odbudowany w latach 1824 - 1844.
-  -    
-    name: Aquapark w Hotelu Gołębiewskim
-    distance: 2.5 km
-    time: 40 min
-    address: Karpacz, ul. Karkonoska 14
-  - name: Anomalia grawitacyjna
-    distance: 2.3 km
-    time: 40 min
-    address: Karpacz, ul. Strażacka
-    description: Miejsce, gdzie samochody samodzielnie toczą się pod górkę...
-  - name: Western City
-    distance: 2.6 km
-    time: 45 min
-    address: Ściegny, ul. Nad Łomnicą 1a
-    description: Park rozryki osadzony w klimacie westernowym z m.in. saloonem, biurem szeryfa czy sklepem kolonialnym.
-hiking:
-  - name: Śnieżka 
-    height: 1603 m n.p.m.
-    distance: 7.8 km
-    time: 3 h 30 min
-    mayBeClosed: true
-  - name: Kocioł Wielkiego Stawu 
-    height: 1406 m n.p.m.
-    distance: 6.5 km
-    time: 3 h 0 min
-  - name: Skalny Stół 
-    height: 1281 m n.p.m.
-    distance: 6.3 km
-    time: 2 h 45 min
-  - name: Przełęcz Karkonoska 
-    height: 1198 m n.p.m.
-    distance: 10 km
-    time: 3 h 45 min
-  - name: Pohulanka 
-    height: 715 m n.p.m.
-    distance: 1 km
-    time: 20 min
-  - name: Księża Góra 
-    height: 610 m n.p.m.
-    distance: 3.2 km
-    time: 45 min
+  - name: Przy skałkach
+    distance: 1.1 km
+    time: 12 min
+    address: ul. Kamienna 10
+  - name: Górska Chata
+    distance: 1.2 km
+    time: 14 min
+    address: ul. Kamienna 8a
+  - name: Olympia
+    distance: 2 km
+    time: 24 min
+    address: ul. Karkonoska 1
+  - name: Pod Wesołym Misiem bar
+    distance: 2 km
+    time: 27 min
+    address: ul. Turystyczna 8
+  - name: Idylla
+    distance: 2 km
+    time: 27 min
+    address: ul. Turystyczna 10
+  - name: Tawerna "Bartolini" w Chybotku
+    distance: 2.7 km
+    time: 39 min
+    address: ul. Karkonoska 44
 
+attractions:
+  - name: Kamień Waloński
+    distance: 2.2 km
+    time: 30 min
+    address: Przesieka, Karkonoska 37
+    description: Zespół skał znajdujący się pomiędzy remizą strażacką, a dawnym barem Pod Lipami. Na jednej ze skał wyraźnie widoczne jest wgłębienie w kształcie ludzkiej postaci.
+
+hiking:
+  - name: Skałki Nad Przesieką
+    height: 820 m n.p.m.
+    distance: 4.1 km
+    time: 1h
+  - name: Wodospad Podgórnej
+    height: 547 m n.p.m.
+    distance: 2.3 km
+    time: 35 min
+
+  - name: Niedźwiedzie skałki
+    height: 620 m n.p.m.
+    distance: 900 m
+    time: 15 min
