@@ -80,19 +80,26 @@ body {
 }
 
 .uwr_logo {
-  width: 50mm;
-  margin: 10mm;
+  padding-top: 11mm;
+  padding-left: 1mm;
+  width: 65mm;
+  margin: 5mm;
 }
 
 .ksi_logo {
-  padding-top: 1mm;
-  width: 75mm;
-  margin: 10mm;
+  padding-top: 13.5mm;
+  padding-left: 4mm;
+  margin: 5mm;
+}
+
+.ksi_logo img {
+  width: 72mm;
+  height: auto;
 }
 
 .logo_wrapper {
   margin-top: 20mm;
-  margin-left: 7mm;
+  margin-left: 0;
   width: 140mm;
   display: flex;
   flex-direction: row;
@@ -136,7 +143,7 @@ body {
 .event {
   font-size: 14px;
   display: table-row;
-  border-bottom: solid white 3mm;
+  border-bottom: solid white 2mm;
 }
 
 .event .hour {
@@ -299,6 +306,10 @@ img {
 .antmicro_logo {
   background: url(../book/antmicro-color.svg) no-repeat center center;
   background-size: 55%;
+}
+
+.locations-page {
+  break-inside: avoid;
 }
 
 /* layout */
