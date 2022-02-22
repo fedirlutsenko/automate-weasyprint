@@ -61,12 +61,15 @@ body {
 }
 
 .name {
+  padding-top: 10px;
   margin: auto;
   text-align: center;
-  font-size: 35px;
+  line-height: 78%;
+  font-size: 30px;
 }
 
 .organization {
+  padding-top: 3px;
   margin: auto;
   text-align: center;
   font-size: 18px;
