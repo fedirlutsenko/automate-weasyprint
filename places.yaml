@@ -30,6 +30,23 @@ attractions:
     time: 30 min
     address: Przesieka, Karkonoska 37
     description: Zespół skał znajdujący się pomiędzy remizą strażacką, a dawnym barem Pod Lipami. Na jednej ze skał wyraźnie widoczne jest wgłębienie w kształcie ludzkiej postaci.
+  - name: Zamek Chojnik
+    distance: 5.8 km
+    address: Zamek Chojnik, Jelenia Góra-Sobieszów
+    time: 1 h 30 min
+    description: Chojnik to bardzo atrakcyjny cel pieszych i rowerowych wycieczek. Panorama z wieży zamkowej z pewnością warta jest kropel potu, wylanych podczas stromego podejścia.
+  - name: Termy Cieplickie
+    distance: 8.3 km
+    time: 1 h 35 min / 15 min samochodem
+    address: Jelenia Góra, Park Zdrojowy 5
+    description: Kompleks basenów rekreacyjno-sportowych wyrózniający się wykorzystaniem słynnych wód termalnych o niespotykanym, w skali europejskiej składzie chemicznym i temperaturze. Wody fluorkowo-krzemowe pochodzą z odwiertu o głębokości niemal 2 km, która przed schłodzeniem i rozrzedzeniem do poziomu zgodnego z Polską Normą, ma temperaturę dochodzącą do 89°C.
+  - name: SkiResort ČERNÁ HORA - PEC
+    distance: 50 km
+    address: Pec pod Sněžkou i okolice
+    time: 1 h samochodem
+    description: Największy resort w Czechach, gdzie możecie jeździć na nartach po 50 km nartostrad i tras narciarskich na 1 karnet. SkiResort tworzy 6 ośrodków - Černá hora, Pec pod Sněžkou, Černý Důl, Malá Úpa, Velká Úpa i Svoboda nad Úpou. Każdy z nich ma inny charakter i różny stopień trudności na nartostradach.
+
+transport:  Do przesieki nie kursują pociągi. Jedyne autobusy jeżdżą sporadycznie wzdłuż linii nr.4 obsługiwanej przez jeleniogórską komunikację miejską. Linia 4 zawiezie nas najdalej do Podgórzyna, skąd dostępne są już wygodne połączenia do Jeleniej Góry. Do Podgórzyna można dostać się też na piechotę w ciągu 30-40min.
 
 hiking:
   - name: Skałki Nad Przesieką

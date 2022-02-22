@@ -159,6 +159,15 @@
       {% endfor %}
     </ul>
 
+    {% if places.transport %}
+    <h3 class="places-subtitle"> Transport publiczny </h3>
+    <div class="locations transport">
+      <p>
+        {{ places.transport }}
+      </p>
+    </div>
+    {% endif %}
+
   </div>
 
   <div class="fun_pages locations-page">

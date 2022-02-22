@@ -1,7 +1,7 @@
 
 .PHONY: book identifier schedule all webschedule clean
 
-gen/book.html: book/book.css book/book_template.html 
+gen/book.html: book/book.css book/book_template.html places.yaml
 gen/identifier.html: identifier/identifier_template.html identifier/identifier.css
 gen/schedule.html: schedule/schedule_template.html schedule/schedule.css
 gen/web_schedule.html: schedule/web_schedule_template.html
