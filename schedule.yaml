@@ -1,0 +1,168 @@
+- name: Czwartek
+  session_name: Czwartek
+  events:
+      - title: Obiadokolacja
+        type: MEAL
+        startTime: "20:00"
+        duration: 90
+
+      - title: Rozpoczęcie
+        type: EVENT
+        startTime: "22:00"
+        duration: 15
+
+      - title: “Follow the science”, czyli jak nas szczują liczbami
+        type: LECTURE
+        startTime: "22:20"
+        duration: 45
+
+      - title: Struktura jądra, ale ... nie Unix
+        type: LECTURE
+        startTime: "23:15"
+        duration: 45
+
+      - title: Kiedy notacja tylko przeszkadza
+        type: LECTURE
+        startTime: "00:10"
+        duration: 15
+
+      - title: On the Connecting of the Dots
+        type: LECTURE
+        startTime: "00:30"
+        duration: 20
+
+- name: Piątek
+  session_name: Piątek
+  events:
+      - title: Śniadanie
+        type: MEAL
+        startTime: "09:00"
+        duration: 90
+
+      - title: Obiadokolacja
+        type: MEAL
+        startTime: "16:30"
+        duration: 90
+
+      - title: Prywatność w Internecie, dokąd zmierzamy
+        type: LECTURE
+        sponsor_highlight: "gold_sponsor_highlight"
+        sponsored: true
+        startTime: "18:30"
+        duration: 30
+
+      - title: Najciekawsze fuckupy i bugi, z jakimi walczyłem w TSG
+        type: LECTURE
+        sponsor_highlight: "gold_sponsor_highlight"
+        sponsored: true
+        startTime: "19:05"
+        duration: 30
+
+      - title: Programista w Krainie Czarów
+        type: LECTURE
+        sponsor_highlight: "gold_sponsor_highlight"
+        sponsored: true
+        startTime: "19:45"
+        duration: 30
+
+      - title: Zrób sobie dobrze sam
+        type: LECTURE
+        startTime: "20:20"
+        duration: 30
+
+      - title: Język GLSL - dlaczego shadery mogą być fajne
+        type: LECTURE
+        startTime: "21:00"
+        duration: 20
+
+      - title: Jak nauczyć 6-latki programować
+        type: LECTURE
+        startTime: "21:25"
+        duration: 30
+
+      - title: Nie daj się nabić w butelkę patodeweloperów, czyli planowanie przestrzenne od kuchni
+        type: LECTURE
+        startTime: "22:00"
+        duration: 30
+
+      - title: Jak zachłysnęliśmy się Astro i dlaczego wyrzuciliśmy gotowy projekt
+        type: LECTURE
+        startTime: "22:40"
+        duration: 20
+
+      - title: Dzień dobry, dzwonię z programu Mój Prąd, czyli słów kilka o problemach współczesnej sieci telefonicznej.
+        type: LECTURE
+        startTime: "23:05"
+        duration: 45
+
+      - title: Jak nie zwariować kupując kabel?
+        coauthor: "Aleksander Uniatowicz"
+        type: LECTURE
+        startTime: "00:00"
+        duration: 45
+
+      - title: Grand Theft Auto - jak się kradnie współczesne samochody?
+        type: LECTURE
+        startTime: "00:50"
+        duration: 15
+
+- name: Sobota
+  session_name: Sobota
+  events:
+      - title: Śniadanie
+        type: MEAL
+        startTime: "09:00"
+        duration: 90
+
+      - title: Obiadokolacja
+        type: MEAL
+        startTime: "16:30"
+        duration: 90
+
+      - title: Accelerating AI processing on the edge
+        type: LECTURE
+        sponsor_highlight: "gold_sponsor_highlight"
+        sponsored: true
+        startTime: "18:30"
+        duration: 60
+
+      - title: Od zera do komputera
+        type: LECTURE
+        startTime: "19:40"
+        duration: 20
+
+      - title: Praktyczne aspekty strzelania do kapusty
+        coauthor: "Adam Chabecki"
+        type: LECTURE
+        startTime: "20:05"
+        duration: 60
+
+      - title: █▬█ █ ▀█▀ Najlepsze modyfikacje ułatwiające workflow w chmurze (ZOBACZ JAK!)
+        type: LECTURE
+        startTime: "21:15"
+        duration: 45
+
+      - title: Generowanie przepisów kulinarnych przy użyciu modeli deep learningowych
+        type: LECTURE
+        startTime: "22:05"
+        duration: 15
+
+      - title: Architektury systemów miejskich
+        type: LECTURE
+        startTime: "22:30"
+        duration: 30
+
+      - title: How I Learned to Stop Worrying and Love the UEBA
+        type: LECTURE
+        startTime: "23:05"
+        duration: 20
+
+      - title: Czy Einstein wynalazł sposób na dłuższą młodość?
+        type: LECTURE
+        startTime: "23:30"
+        duration: 30
+
+      - title: Tańce, Hulanki, Swawole
+        type: LECTURE
+        startTime: "00:10"
+        duration: 90
