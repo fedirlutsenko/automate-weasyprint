@@ -3,6 +3,12 @@ import difflib
 
 NUMBER_OF_IDENTIFIERS = 230
 
+HIGHLIGHTED_ORGANIZATIONS = {
+    "FINGO": "gold",
+    "Ten Square Games": "gold",
+    "Antmicro": "gold"
+}
+
 def load_yaml_file(path):
     import yaml
     with open(path, "r") as f:
@@ -36,6 +42,7 @@ def make_indetifier_context(data):
             "first_name": p["user__first_name"],
             "last_name": p["user__last_name"],
             "organization": p["organization__name"],
+            "highlight": HIGHLIGHTED_ORGANIZATIONS[p["organization__name"]] if p["organization__name"] in HIGHLIGHTED_ORGANIZATIONS else "none",
             "dinner_1": p["dinner_day_1"],
             "breakfast_2": p["breakfast_day_2"],
             "dinner_2": p["dinner_day_2"],

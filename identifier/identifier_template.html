@@ -16,9 +16,9 @@
           Zimowy Obóz Studentów Informatyki <br>
           03.06.2022 - 06.03.2022
         </div>
-        <div class="name"> {{ pref.first_name }} {{ pref.last_name }} </div>
+        <div class="name {{ pref.highlight }}"> {{ pref.first_name }} {{ pref.last_name }} </div>
         {% if pref.organization %}
-        <div class="organization"> {{ pref.organization }} </div>
+        <div class="organization {{ pref.highlight }}"> {{ pref.organization }} </div>
         {% endif %}
       </div>
       <div class="cover flip">
@@ -27,9 +27,9 @@
           Zimowy Obóz Studentów Informatyki <br>
           21.02.2019 - 24.02.2019
         </div>
-        <div class="name"> {{ pref.first_name }} {{ pref.last_name }} </div>
+        <div class="name {{ pref.highlight }}"> {{ pref.first_name }} {{ pref.last_name }} </div>
         {% if pref.organization %}
-        <div class="organization"> {{ pref.organization }} </div>
+        <div class="organization {{ pref.highlight }}"> {{ pref.organization }} </div>
         {% endif %}
       </div>
       <div class="meals">
