@@ -116,7 +116,7 @@ body {
 }
 
 .contact b {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .place {
@@ -288,23 +288,23 @@ img {
 }
 
 .fingo_logo {
-  background: url(../book/fingo.svg) no-repeat center center;
+  background: url(../assets/fingo.svg) no-repeat center center;
   background-size: 70%;
 }
 
 .tsg_logo {
-  background: url(../book/TSG_logotyp_RED.svg) no-repeat center center;
+  background: url(../assets/TSG_logotyp_RED.svg) no-repeat center center;
   height: 45mm;
   background-size: 65%;
 }
 
 .siemens_logo {
-  background: url(../book/Siemens_logo.svg) no-repeat center center;
+  background: url(../assets/Siemens_logo.svg) no-repeat center center;
   background-size: 70%;
 }
 
 .antmicro_logo {
-  background: url(../book/antmicro-color.svg) no-repeat center center;
+  background: url(../assets/antmicro-color.svg) no-repeat center center;
   background-size: 55%;
 }
 
@@ -316,44 +316,44 @@ img {
 /* layout */
 .locations-page .row {
   display: flex;
-} 
+}
 .locations-page .flex-right {
   justify-content: flex-end;
-} 
+}
 .locations-page .flex-left {
   justify-content: flex-start;
-} 
+}
 .locations-page .flex-split {
   justify-content: space-between;
-} 
+}
 .locations-page .col {
   display: flex;
   flex-direction: column;
-} 
+}
 
 /* font */
 .locations-page .fw-200 {
   font-weight: 200;
-} 
+}
 .locations-page .fw-300 {
   font-weight: 300;
-} 
+}
 .locations-page .fw-400 {
   font-weight: 400;
-} 
+}
 .locations-page .fw-500 {
   font-weight: 500;
-} 
+}
 .locations-page .fw-600 {
   font-weight: 600;
-} 
+}
 .locations-page .grayout {
   font-style: italic;
   color: #646464;
-} 
+}
 .locations-page .smaller {
   font-size: 0.75rem;
-} 
+}
 
 /* module */
 .locations-page ul{
@@ -375,7 +375,7 @@ img {
 }
 .locations-page .location {
   margin-bottom: 0.8rem;
-} 
+}
 .locations-page .hiking .distance {
   width: 3.2cm;
   text-align: right;

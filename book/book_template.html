@@ -16,14 +16,14 @@
       <div class="zosia_title">
         Zimowy Obóz Studentów Informatyki A
       </div>
-      <div class="zosia_logo"> <img src="../book/zosia.png"> </div>
+      <div class="zosia_logo"> <img src="../assets/zosia.png"> </div>
       <div class="date_and_place">
         Przesieka <br>
-        3 - 6 marca 2022
+        {{ camp_date }}
       </div>
       <div class="logo_wrapper">
-        <div class="uwr_logo"> <img src="../book/logo_UWr.png"> </div>
-        <div class="ksi_logo"> <img src="../book/logo_KSI.svg"> </div>
+        <div class="uwr_logo"> <img src="../assets/logo_UWr.png"> </div>
+        <div class="ksi_logo"> <img src="../assets/logo_KSI.svg"> </div>
       </div>
     </div>
     <div class="bottom">
@@ -33,8 +33,14 @@
   <div class="info_page">
     <div class="contact">
       <b> Kontakt z organizatorami </b> <br />
-      Dawid Dudek: 731 649 322
-
+      <table>
+        {% for person, phone in contacts.items() %}
+        <tr>
+          <td>{{ person }}</td>
+          <td>{{ phone }}</td>
+        </tr>
+        {% endfor %}
+      </table>
     </div>
   </div>
 
@@ -126,8 +132,6 @@
     {% endfor %}
   </div>
 
-
-
   <div class="fun_pages locations-page">
 
     <h2 class="places-title"> Pobliskie miejsca warte odwiedzenia </h2>
@@ -187,7 +191,7 @@
       {% endfor %}
     </ul>
 
-    <h3 class="places-subtitle"> Szczyty </h3>
+    <h3 class="places-subtitle"> Piesze wędrówki </h3>
     <ul class="locations hiking">
 
       {% for h in places.hiking %}
@@ -203,7 +207,6 @@
       </li>
       {% endfor %}
     </ul>
-
 
   </div>
 

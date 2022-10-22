@@ -77,7 +77,7 @@ body {
   padding-top: 3px;
   margin: auto;
   text-align: center;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .organization.gold {
@@ -110,3 +110,11 @@ img {
   text-align: center;
 }
 
+.caption {
+
+}
+
+.date {
+  padding-top: 1mm;
+  font-size: 1em;
+}

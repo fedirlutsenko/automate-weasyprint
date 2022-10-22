@@ -46,7 +46,10 @@ attractions:
     time: 1 h samochodem
     description: Największy resort w Czechach, gdzie możecie jeździć na nartach po 50 km nartostrad i tras narciarskich na 1 karnet. SkiResort tworzy 6 ośrodków - Černá hora, Pec pod Sněžkou, Černý Důl, Malá Úpa, Velká Úpa i Svoboda nad Úpou. Każdy z nich ma inny charakter i różny stopień trudności na nartostradach.
 
-transport:  Do przesieki nie kursują pociągi. Jedyne autobusy jeżdżą sporadycznie wzdłuż linii nr.4 obsługiwanej przez jeleniogórską komunikację miejską. Linia 4 zawiezie nas najdalej do Podgórzyna, skąd dostępne są już wygodne połączenia do Jeleniej Góry. Do Podgórzyna można dostać się też na piechotę w ciągu 30-40min.
+transport: >-
+  Do Przesieki nie kursują pociągi. Jedyne autobusy jeżdżą sporadycznie wzdłuż linii nr.4 obsługiwanej przez Jeleniogórską komunikację miejską.
+  Linia 4 zawiezie nas najdalej do Podgórzyna, skąd dostępne są już wygodne połączenia do Jeleniej Góry.
+  Do Podgórzyna można dostać się też na piechotę w ciągu 30-40min.
 
 hiking:
   - name: Skałki Nad Przesieką
@@ -57,8 +60,9 @@ hiking:
     height: 547 m n.p.m.
     distance: 2.3 km
     time: 35 min
-
   - name: Niedźwiedzie skałki
     height: 620 m n.p.m.
     distance: 900 m
     time: 15 min
+  # - name: Szlak Siedmiu wzgórz
+

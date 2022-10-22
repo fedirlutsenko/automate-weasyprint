@@ -1,12 +1,14 @@
 import difflib
 import json
+import locale
 import yaml
+from datetime import date
+from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader
 
 
 NUMBER_OF_BLANK_IDENTIFIERS = 20
-ZOSIA_DATE = "02.03.2023 - 05.03.2023"
 HIGHLIGHTED_ORGANIZATIONS = {
     "FINGO": "gold",
     "Ten Square Games": "gold",
@@ -40,7 +42,7 @@ def render(template, context):
     return template.render(context)
 
 
-def make_indetifier_context(data):
+def make_indetifier_context(data, zosia_date: str):
     prefs = []
     for p in data["preferences"]:
         prefs.append({
@@ -64,17 +66,17 @@ def make_indetifier_context(data):
             "organization": ".............",
             "dinner_1": True,
             "breakfast_2": True,
-            "dinner_3": True,
+            "dinner_2": True,
             "breakfast_3": True,
-            "dinner_4": True,
+            "dinner_3": True,
             "breakfast_4": True,
         })
 
-    return {"prefs": prefs, "camp_date": ZOSIA_DATE}
+    return {"prefs": prefs, "camp_date": zosia_date}
 
 
-def gen_identifier(data):
-    context = make_indetifier_context(data)
+def gen_identifier(data, zosia_date: str):
+    context = make_indetifier_context(data, zosia_date)
     rendered = render("identifier/identifier_template.html", context)
     write_to_file("gen/identifier.html", rendered)
 
@@ -129,11 +131,15 @@ def combine_schedule_and_data(schedule, data):
     return result
 
 
-def gen_book_and_schedule(schedule, data):
+def gen_book_and_schedule(schedule, data, zosia_date: str, contacts):
     days = combine_schedule_and_data(schedule, data)
 
     book_template = env.get_template('book/book_template.html')
-    string = book_template.render({"days": days, "places": places})
+    string = book_template.render({
+        "days": days,
+        "places": places,
+        "contacts": contacts,
+        "camp_date": zosia_date})
     with open("gen/book.html", "w", encoding="utf-8") as text_file:
         text_file.write(string)
 
@@ -149,9 +155,27 @@ def gen_book_and_schedule(schedule, data):
 
 
 if __name__ == "__main__":
+    Path("./gen").mkdir(exist_ok=True)
+
     schedule = load_yaml_file("schedule.yaml")
-    places = load_yaml_file("places.yaml")
+    places = load_yaml_file("places/Marcus.yaml")
     data = load_json_file("data.json")
 
-    gen_identifier(data)
-    gen_book_and_schedule(schedule, data)
+    # Enforce polish locale to generate proper month name
+    locale.setlocale(locale.LC_ALL, 'pl_PL.utf8')
+    start_date = date.fromisoformat(data["zosia"]["start_date"])
+    end_date = date.fromisoformat(data["zosia"]["end_date"])
+    zosia_date = f"{start_date:%-d %B %Y} - {end_date:%-d %B %Y}"
+    # zosia_date = f"{start_date:%-d} - {end_date:%-d %B %Y}"
+
+    # NOTE: This will be moved to some configuration file in the future
+    contacts = {
+      "Aneta Kos": "111 222 333",
+      "Jan Kowalski": "222 333 444",
+      "Bartosz Kurek": "123 456 789",
+    }
+
+    # NOTE: These functions generate html files and write them to files,
+    # but this step will be omitted in the future.
+    gen_identifier(data, zosia_date)
+    gen_book_and_schedule(schedule, data, zosia_date, contacts)
