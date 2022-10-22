@@ -15,7 +15,7 @@ HIGHLIGHTED_ORGANIZATIONS = {
     "Antmicro": "gold"
 }
 
-env = Environment(loader=FileSystemLoader('./'))
+env = Environment(loader=FileSystemLoader('./templates'))
 
 
 def load_yaml_file(path):
@@ -157,8 +157,8 @@ def gen_book_and_schedule(schedule, data, zosia_date: str, contacts):
 if __name__ == "__main__":
     Path("./gen").mkdir(exist_ok=True)
 
-    schedule = load_yaml_file("schedule.yaml")
-    places = load_yaml_file("places/Marcus.yaml")
+    schedule = load_yaml_file("data/schedules/2023.yaml")
+    places = load_yaml_file("data/places/Marcus.yaml")
     data = load_json_file("data.json")
 
     # Enforce polish locale to generate proper month name
