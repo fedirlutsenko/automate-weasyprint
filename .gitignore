@@ -1,3 +1,9 @@
 pdf/
 gen/
 data.json
+
+# Files with testing data
+test.yaml
+
+# virtual environment
+*venv/
