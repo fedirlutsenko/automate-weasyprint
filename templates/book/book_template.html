@@ -3,9 +3,9 @@
 
 <head>
   <meta charset="utf-8">
-  <link href="../book/book.css" rel="stylesheet">
-  <title>Board ticket</title>
-  <meta name="description" content="Board ticket">
+  <link href="book.css" rel="stylesheet">
+  <title>Book</title>
+  <meta name="description" content="Book">
 </head>
 
 <body>
@@ -16,14 +16,14 @@
       <div class="zosia_title">
         Zimowy Obóz Studentów Informatyki A
       </div>
-      <div class="zosia_logo"> <img src="../assets/zosia.png"> </div>
+      <div class="zosia_logo"> <img src="../../assets/zosia.png"> </div>
       <div class="date_and_place">
-        Przesieka <br>
+        {{ place.localization }} <br>
         {{ camp_date }}
       </div>
       <div class="logo_wrapper">
-        <div class="uwr_logo"> <img src="../assets/logo_UWr.png"> </div>
-        <div class="ksi_logo"> <img src="../assets/logo_KSI.svg"> </div>
+        <div class="uwr_logo"> <img src="../../assets/logo_UWr.png"> </div>
+        <div class="ksi_logo"> <img src="../../assets/logo_KSI.svg"> </div>
       </div>
     </div>
     <div class="bottom">
@@ -133,12 +133,10 @@
   </div>
 
   <div class="fun_pages locations-page">
-
     <h2 class="places-title"> Pobliskie miejsca warte odwiedzenia </h2>
 
     <ul class="locations attractions">
-
-      {% for a in places.attractions %}
+      {% for a in place.attractions %}
       <li class="location attraction">
         <div class="row flex-split fw-400">
           <span>{{ a.name }}</span>
@@ -155,7 +153,7 @@
         {% if a.pricing %}
         <div class="row">
           <span>
-            cennik: {{ a.pricing | join(', ') }}
+            <b>Cennik:</b> {{ a.pricing | join(', ') }}
           </span>
         </div>
         {% endif %}
@@ -163,11 +161,11 @@
       {% endfor %}
     </ul>
 
-    {% if places.transport %}
+    {% if place.transport %}
     <h3 class="places-subtitle"> Transport publiczny </h3>
     <div class="locations transport">
       <p>
-        {{ places.transport }}
+        {{ place.transport }}
       </p>
     </div>
     {% endif %}
@@ -178,7 +176,7 @@
 
     <h3 class="places-subtitle"> Restauracje </h3>
     <ul class="locations restaurants">
-      {% for r in places.restaurants %}
+      {% for r in place.restaurants %}
       <li class="location restaurant">
         <div class="row flex-split fw-400">
           <span class="name">{{ r.name }}</span>
@@ -194,7 +192,7 @@
     <h3 class="places-subtitle"> Piesze wędrówki </h3>
     <ul class="locations hiking">
 
-      {% for h in places.hiking %}
+      {% for h in place.hiking %}
       <li class="location hiking">
         <div class="row flex-split location-title">
           <span class="name fw-400">{{ h.name }}</span>

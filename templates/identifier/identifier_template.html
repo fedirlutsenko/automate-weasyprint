@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link href="../identifier/identifier.css" rel="stylesheet">
+    <link href="identifier.css" rel="stylesheet">
     <title>Board ticket</title>
     <meta name="description" content="Board ticket">
   </head>
@@ -11,7 +11,7 @@
     {% for pref in prefs %}
     <div class="badge">
       <div class="cover">
-        <div class="zosia_logo"> <img src="../assets/zosia.png"> </div>
+        <div class="zosia_logo"> <img src="../../assets/zosia.png"> </div>
         <div class="name {{ pref.highlight }}"> {{ pref.first_name }} {{ pref.last_name }} </div>
         {% if pref.organization %}
         <div class="organization {{ pref.highlight }}"> {{ pref.organization }} </div>
@@ -21,7 +21,7 @@
         <div class="date">{{ camp_date }}</div>
       </div>
       <div class="cover flip">
-        <div class="zosia_logo"> <img src="../assets/zosia.png"> </div>
+        <div class="zosia_logo"> <img src="../../assets/zosia.png"> </div>
         <div class="caption">
           Zimowy Obóz Studentów Informatyki <br>
           {{ camp_date }}

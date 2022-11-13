@@ -98,8 +98,9 @@ body {
 }
 
 .logo_wrapper {
-  margin-top: 20mm;
+  margin-top: 10mm;
   margin-left: 0;
+  margin-bottom: 10mm;
   width: 140mm;
   display: flex;
   flex-direction: row;
