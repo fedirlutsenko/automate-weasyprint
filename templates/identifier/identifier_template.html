@@ -12,25 +12,35 @@
     <div class="badge">
       <div class="cover">
         <div class="zosia_logo"> <img src="../../assets/zosia.png"> </div>
+        {% if pref.first_name is defined or pref.last_name is defined %}
         <div class="name {{ pref.highlight }}"> {{ pref.first_name }} {{ pref.last_name }} </div>
+        {% else %}
+        <div class="name_placeholder"></div>
+        {% endif %}
         {% if pref.organization %}
         <div class="organization {{ pref.highlight }}"> {{ pref.organization }} </div>
+        {% else %}
+        <div class="organization_placeholder"></div>
         {% endif %}
         <hr/>
         <div class="caption">Zimowy Obóz Studentów Informatyki</div>
-        <div class="date">{{ camp_date }}</div>
+        <div class="date">{{ camp_date }} | {{location}}</div>
       </div>
       <div class="cover flip">
         <div class="zosia_logo"> <img src="../../assets/zosia.png"> </div>
-        <div class="caption">
-          Zimowy Obóz Studentów Informatyki <br>
-          {{ camp_date }}
-        </div>
-        <hr/>
+        {% if pref.first_name is defined or pref.last_name is defined %}
         <div class="name {{ pref.highlight }}"> {{ pref.first_name }} {{ pref.last_name }} </div>
+        {% else %}
+        <div class="name_placeholder"></div>
+        {% endif %}
         {% if pref.organization %}
         <div class="organization {{ pref.highlight }}"> {{ pref.organization }} </div>
+        {% else %}
+        <div class="organization_placeholder"></div>
         {% endif %}
+        <hr/>
+        <div class="caption">Zimowy Obóz Studentów Informatyki</div>
+        <div class="date">{{location}} | {{ camp_date }}</div>
       </div>
       <div class="meals">
         <div class="column">
@@ -38,17 +48,17 @@
           </div>
           <div class="meal_ticket">
             <div class="meal_name">
-              {% if pref.dinner_3 %} Obiad sobota {% endif %}
+              {% if pref.template or pref.dinner_3 %} Obiad sobota {% endif %}
             </div>
           </div>
           <div class="meal_ticket">
             <div class="meal_name">
-              {% if pref.dinner_2 %} Obiad piątek {% endif %}
+              {% if pref.template or pref.dinner_2 %} Obiad piątek {% endif %}
             </div>
           </div>
           <div class="meal_ticket">
             <div class="meal_name">
-              {% if pref.dinner_1 %} Obiad czwartek {% endif %}
+              {% if pref.template or pref.dinner_1 %} Obiad czwartek {% endif %}
             </div>
           </div>
         </div>
@@ -59,17 +69,17 @@
           </div>
           <div class="meal_ticket">
             <div class="meal_name">
-              {% if pref.breakfast_4 %} Śniadanie niedziela {% endif %}
+              {% if pref.template or pref.breakfast_4 %} Śniadanie niedziela {% endif %}
             </div>
           </div>
           <div class="meal_ticket">
             <div class="meal_name">
-              {% if pref.breakfast_3 %} Śniadanie sobota {% endif %}
+              {% if pref.template or pref.breakfast_3 %} Śniadanie sobota {% endif %}
             </div>
           </div>
           <div class="meal_ticket">
             <div class="meal_name">
-              {% if pref.breakfast_2 %} Śniadanie piątek {% endif %}
+              {% if pref.template or pref.breakfast_2 %} Śniadanie piątek {% endif %}
             </div>
           </div>
         </div>
