@@ -1,9 +1,12 @@
 pdf/
 gen/
-data.json
 
 # Files with testing data
 test.yaml
+
+# Files with real data
+*.csv
+*.json
 
 # virtual environment
 *venv/
