@@ -199,7 +199,7 @@ def main() -> None:
     print(args)
 
     # Use global variable to simplify configuring debugs
-    global DEBUG_MODE
+    global DEBUG_MODE  # pylint: disable=W0603
     DEBUG_MODE = args.debug
 
     # Make sure that target directory exist
