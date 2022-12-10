@@ -83,6 +83,11 @@ def generate_schedule(path: str, data: Dict[str, Any]) -> List[Dict[str, Any]]:
                 continue
 
             # TODO: Handle some typos or other small mismatches
+            if title not in lectures:
+                print(f"WARNING: Lecture '{title}' not found in data file. "
+                      f"Skipping...")
+                continue
+
             lecture_data = lectures[title]
             events.append({
                 "type": event_type.lower(),
