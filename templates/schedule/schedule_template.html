@@ -5,6 +5,12 @@
     <link href="schedule.css" rel="stylesheet">
     <title>Schedule</title>
     <meta name="description" content="Schedule">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
@@ -15,29 +21,31 @@
         <div class="day_name">
           {{ d.name }}
         </div>
-        <div class="event_table">
-        {% for e in d.events %}
-          <div class="event {{e.sponsor_highlight}}">
-            <div class="hour">
-              {{ e.startTime }} {{ e.endTime }}
-            </div>
-            <div class="lecturer_and_title">
-              {{ e.title }}
-              {% if e.lecturer %}
-                <br/> <span class="lecturer"> {{ e.lecturer }}
-                {% if e.coauthor %}
-                  i {{ e.coauthor }}
+        <table class="event_table">
+          <tbody>
+            {% for e in d.events %}
+            <tr class="event {{e.sponsor_highlight}}">
+              <td class="hour">
+                {{ e.startTime }} {{ e.endTime }}
+              </td>
+              <td class="lecturer_and_title">
+                {{ e.title }}
+                {% if e.lecturer %}
+                  <br/> <span class="lecturer"> {{ e.lecturer }}
+                  {% if e.coauthor %}
+                    i {{ e.coauthor }}
+                  {% endif %}
+                  {% if e.sponsored %}
+                  z firmy <b> {{ e.organization }} </b>
+                  {% endif %}
+                  </span>
                 {% endif %}
-                {% if e.sponsored %}
-                z firmy <b> {{ e.organization }} </b>
-                {% endif %}
-                </span>
-              {% endif %}
-              </em>
-            </div>
-          </div>
-        {% endfor %}
-        </div>
+                </em>
+              </td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
       </div>
       {% endfor %}
     </div>

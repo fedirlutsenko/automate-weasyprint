@@ -216,9 +216,9 @@ def main() -> None:
     # Render Zosia date
     start_date = date.fromisoformat(data["zosia"]["start_date"])
     end_date = date.fromisoformat(data["zosia"]["end_date"])
-    zosia_date = f"{start_date:%-d} - {end_date:%-d %B %Y}"
+    zosia_date = f"{start_date.day} - {end_date.day} {end_date:%B %Y}"
     if start_date.month != end_date.month:
-        zosia_date = f"{start_date:%-d %B} - {end_date:%-d %B %Y}"
+        zosia_date = f"{start_date.day} {start_date:%B} - {end_date.day} {end_date:%B %Y}"
 
     print(f"Zosia {edition} - camp date: {zosia_date}")
 

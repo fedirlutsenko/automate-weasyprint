@@ -168,20 +168,18 @@
       </ul>
 
       <h3 class="places-subtitle">Piesze wędrówki</h3>
-      <ul class="locations hiking">
-        {% for h in place.hiking %}
-        <li class="location hiking">
-          <div class="row flex-split location-title">
-            <span class="name fw-400">{{ h.name }}</span>
-            <div class="row fw-200">
-              <span class="distance">{{ h.distance }}</span>
-              <span class="time">{{ h.time }}</span>
-              <span class="height">{{ h.height }}</span>
-            </div>
-          </div>
-        </li>
-        {% endfor %}
-      </ul>
+      <table class="locations hiking">
+        <tbody>
+          {% for h in place.hiking %}
+          <tr class="location hiking">
+            <td class="name fw-400">{{ h.name }}</td>
+            <td class="distance">{{ h.distance }}</td>
+            <td class="time">{{ h.time }}</td>
+            <td class="height">{{ h.height }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     </div>
 
     <div class="blank"></div>
