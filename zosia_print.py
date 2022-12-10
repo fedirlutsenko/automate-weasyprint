@@ -91,12 +91,18 @@ def generate_schedule(path: str, data: Dict[str, Any]) -> List[Dict[str, Any]]:
                 continue
 
             lecture_data = lectures[title]
+
+            # Support for files modified on Windows...
+            paragraph_mark = '\n\n'
+            if '\r\n' in lecture_data['abstract']:
+                paragraph_mark = '\r\n\r\n'
+
             events.append({
                 "type": event_type.lower(),
                 "startTime": start_time,
                 "duration": duration,
                 "endTime": end_time,
-                "abstract": lecture_data['abstract'],
+                "abstract": lecture_data['abstract'].split(paragraph_mark),
                 "title": printing_title,
                 "lecturer": lecturer,
                 "organization": sponsor,
