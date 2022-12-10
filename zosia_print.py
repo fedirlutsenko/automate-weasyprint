@@ -21,23 +21,24 @@ TARGET_DIR = "./gen"
 env = Environment(loader=FileSystemLoader(TEMPLATES_PATH))
 
 
-def load_yaml_file(path: str) -> Any:
+def load_yaml_file(path: str) -> Dict[str, Any]:
     with open(path, "r", encoding="utf-8") as file:
         file_data = yaml.load(file.read(), Loader=yaml.Loader)
         return file_data
 
 
-def load_json_file(path: str) -> Any:
+def load_json_file(path: str) -> Dict[str, Any]:
     with open(path, "r", encoding="utf-8") as file:
         file_data = json.loads(file.read())
         return file_data
 
 
-def load_schedule_file(path: str) -> List[Dict[str, Any]]:
+def generate_schedule(path: str, data: Dict[str, Any]) -> List[Dict[str, Any]]:
     weekdays = [d.strftime("%A") for d in [
         date.today() + timedelta(days=i) for i in range(7)]]
 
     schedule: List[Dict[str, Any]] = []
+    lectures = {lect['title']: lect for lect in data['lectures']}
 
     with open(path, "r", encoding="utf-8") as file:
         reader = csv.reader(file, delimiter=',', quotechar='"')
@@ -70,7 +71,7 @@ def load_schedule_file(path: str) -> List[Dict[str, Any]]:
              break_time, event_type, comments, sponsor, service,
              additional_comments, duration) = row
 
-            # NOTE: this structures are backward compatible with old templates
+            # NOTE: these structures are backward compatible with old templates
             if event_type.lower() != "lecture":
                 events.append({
                     "title": printing_title,
@@ -81,12 +82,14 @@ def load_schedule_file(path: str) -> List[Dict[str, Any]]:
                 })
                 continue
 
+            # TODO: Handle some typos or other small mismatches
+            lecture_data = lectures[title]
             events.append({
                 "type": event_type.lower(),
                 "startTime": start_time,
                 "duration": duration,
                 "endTime": end_time,
-                "abstract": "TODO",
+                "abstract": lecture_data['abstract'],
                 "title": printing_title,
                 "lecturer": lecturer,
                 "organization": sponsor,
@@ -116,10 +119,12 @@ def render_pdf(
     HTML(
         string=render_template(path, ctx),
         base_url=f"{TEMPLATES_PATH}/{template_dir}"
-    ).write_pdf(f"{TARGET_DIR}/{target_name}.pdf")
+    ).write_pdf(
+        f"{TARGET_DIR}/{target_name}.pdf",
+        font_config=FontConfiguration())
 
 
-def extract_preferences(data: Any) -> List[Dict[str, Any]]:
+def extract_preferences(data: Dict[str, Any]) -> List[Dict[str, Any]]:
     pref = []
     for p in data["preferences"]:
         organization = p["organization__name"]
@@ -173,7 +178,7 @@ def main() -> None:
     # Load data
     data = load_json_file(args.data)
     place = load_yaml_file(f"{PLACES_PATH}/{args.place}.yaml")
-    schedule = load_schedule_file(args.schedule)
+    schedule = generate_schedule(args.schedule, data)
 
     # Render Zosia date
     start_date = date.fromisoformat(data["zosia"]["start_date"])
@@ -195,6 +200,7 @@ def main() -> None:
     }
 
     # Book
+    print("Rendering book...")
     render_pdf("book/book_template.html", {
         "days": schedule,
         "place": place,
@@ -203,6 +209,7 @@ def main() -> None:
     })
 
     # Schedule
+    print("Rendering schedule...")
     render_pdf("schedule/schedule_template.html", {
         "days": schedule
     })
@@ -215,8 +222,10 @@ def main() -> None:
             }))
 
     # Identifier
+    print("Rendering identifiers...")
+    blanks = [{'template': True}] * args.n_of_blanks
     render_pdf("identifier/identifier_template.html", {
-        "prefs": extract_preferences(data) + [{'template': True}] * args.n_of_blanks,
+        "prefs": extract_preferences(data) + blanks,
         "camp_date": zosia_date,
         "location": place['localization'],
     })
