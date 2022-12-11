@@ -49,7 +49,7 @@
       {% for d in days %}
       <div class="event_day">
         <div class="day_name">{{ d.name }}</div>
-        <table class="event_tabltablee">
+        <table class="event_table">
           <tbody>
             {% for e in d.events %}
             <tr class="event">
@@ -97,9 +97,7 @@
           {% else %}
           <div class="title">{{ e.title }}</div>
           {% endif %}
-          <div>
-            {{ d.session_name }} {{ e.startTime }} | {{ e.duration }}min
-          </div>
+          <div>{{ d.session_name }} {{ e.startTime }} | {{ e.duration }}</div>
           <div class="lecturer">
             <em>
               {{ e.lecturer }} {% if e.coauthor %} i {{ e.coauthor }} {% endif
