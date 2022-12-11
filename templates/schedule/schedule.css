@@ -16,6 +16,10 @@ body {
   margin: 0;
 }
 
+p {
+  margin: 0
+}
+
 .event.gold_sponsor_highlight .lecturer_and_title {
   background-color: #ffffff60;
   font-weight: 600;

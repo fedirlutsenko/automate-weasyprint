@@ -29,16 +29,16 @@
                 {{ e.startTime }} {{ e.endTime }}
               </td>
               <td class="lecturer_and_title">
-                {{ e.title }}
+                <p>{{ e.title }}</p>
                 {% if e.lecturer %}
-                  <br/> <span class="lecturer"> {{ e.lecturer }}
+                  <p class="lecturer"> {{ e.lecturer }}
                   {% if e.coauthor %}
                     i {{ e.coauthor }}
                   {% endif %}
                   {% if e.sponsored %}
                   z firmy <b> {{ e.organization }} </b>
                   {% endif %}
-                  </span>
+                  </p>
                 {% endif %}
                 </em>
               </td>
