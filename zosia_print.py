@@ -181,6 +181,9 @@ def main() -> None:
     today = date.today()
     edition = today.year if today.month <= 3 else today.year + 1
 
+    render_options = (['all'] + os.listdir(TEMPLATES_PATH) +
+                      [f"{obj}s" for obj in os.listdir(TEMPLATES_PATH)])
+
     parser = argparse.ArgumentParser(
         description="Zosia-print - generates printables based on the HTML "
                     "templates and data from Zosia website.")
@@ -194,6 +197,8 @@ def main() -> None:
                         help="Number of blank identifiers.")
     parser.add_argument('--debug', action='store_true', help="Render separate "
                         "HTML file for each PDF export.")
+    parser.add_argument('--render', default='all', choices=render_options,
+                        help="Choose object to render (all by default).")
 
     args = parser.parse_args()
     print(args)
@@ -236,36 +241,38 @@ def main() -> None:
       "Bartosz Kurek": "123 456 789",
     }
 
-    # TODO: render only selected documents
+    render_all = args.render == 'all'
+    if render_all or args.render.startswith('book'):
+        # Book
+        print("Rendering book...")
+        render_document("book/book_template.html", {
+            "days": schedule,
+            "place": place,
+            "contacts": contacts,
+            "camp_date": zosia_date
+        })
 
-    # Book
-    print("Rendering book...")
-    render_document("book/book_template.html", {
-        "days": schedule,
-        "place": place,
-        "contacts": contacts,
-        "camp_date": zosia_date
-    })
+    if render_all or args.render.startswith('schedule'):
+        # Schedule
+        print("Rendering schedule...")
+        render_document("schedule/schedule_template.html", {
+            "days": schedule
+        })
 
-    # Schedule
-    print("Rendering schedule...")
-    render_document("schedule/schedule_template.html", {
-        "days": schedule
-    })
+        # Web schedule for zosia-site
+        render_document("schedule/web_schedule_template.html", {
+                            "days": schedule
+                        }, "web_schedule", True)
 
-    # Web schedule for zosia-site
-    render_document("schedule/web_schedule_template.html", {
-                        "days": schedule
-                    }, "web_schedule", True)
-
-    # Identifier
-    print("Rendering identifiers...")
-    blanks = [{'template': True}] * args.n_of_blanks
-    render_document("identifier/identifier_template.html", {
-        "prefs": extract_preferences(data) + blanks,
-        "camp_date": zosia_date,
-        "location": place['localization'],
-    })
+    if render_all or args.render.startswith('identifier'):
+        # Identifier
+        print("Rendering identifiers...")
+        blanks = [{'template': True}] * args.n_of_blanks
+        render_document("identifier/identifier_template.html", {
+            "prefs": extract_preferences(data) + blanks,
+            "camp_date": zosia_date,
+            "location": place['localization'],
+        })
 
 
 if __name__ == "__main__":
