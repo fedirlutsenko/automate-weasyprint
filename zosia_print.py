@@ -216,9 +216,13 @@ def main() -> None:
     # Render Zosia date
     start_date = date.fromisoformat(data["zosia"]["start_date"])
     end_date = date.fromisoformat(data["zosia"]["end_date"])
-    zosia_date = f"{start_date.day} - {end_date.day} {end_date:%B %Y}"
+    # NOTE: %-d date format is not supported on Windows ...
+    # so this is as workaround, end_date.day is used
+    end_day = end_date.day
+    zosia_date = f"{start_date.day} - {end_day} {end_date:%B %Y}"
     if start_date.month != end_date.month:
-        zosia_date = f"{start_date.day} {start_date:%B} - {end_date.day} {end_date:%B %Y}"
+        zosia_date = (
+            f"{start_date.day} {start_date:%B} - {end_day} {end_date:%B %Y}")
 
     print(f"Zosia {edition} - camp date: {zosia_date}")
 
@@ -231,6 +235,8 @@ def main() -> None:
       "Jan Kowalski": "222 333 444",
       "Bartosz Kurek": "123 456 789",
     }
+
+    # TODO: render only selected documents
 
     # Book
     print("Rendering book...")
