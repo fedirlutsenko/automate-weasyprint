@@ -70,7 +70,7 @@ def generate_schedule(path: str, data: Dict[str, Any]) -> List[Dict[str, Any]]:
                 continue
 
             (start_time, lecturer, printing_title, title, end_time,
-             break_time, event_type, comments, sponsor, service,
+             break_time, event_type, comments, highlighted, service,
              additional_comments, duration) = row
 
             # NOTE: these structures are backward compatible with old templates
@@ -105,7 +105,10 @@ def generate_schedule(path: str, data: Dict[str, Any]) -> List[Dict[str, Any]]:
                 "abstract": lecture_data['abstract'].split(paragraph_mark),
                 "title": printing_title,
                 "lecturer": lecturer,
-                "organization": sponsor,
+                # TODO: Add logic to Sponsor highlight
+                "showOrganization": highlighted == 'Yes',
+                "highlight": 'gold' if highlighted == 'Yes' else 'none',
+                "organization": lecture_data['author__preferences__organization__name'],
             })
 
     schedule.append({
@@ -155,7 +158,7 @@ def extract_preferences(data: Dict[str, Any]) -> List[Dict[str, Any]]:
     for p in data["preferences"]:
         organization = p["organization__name"]
         if organization is not None and len(organization) > 80:
-            print_warning(f"Organization name: \"{organization}\" is to long"
+            print_warning(f"Organization name: \"{organization}\" is too long"
                           f"and will be truncated.")
             organization = organization[:80] + '...'
 

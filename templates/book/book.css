@@ -157,13 +157,6 @@ body {
   border-left: 2px solid black;
 }
 
-.event .hour div {
-  
-}
-
-.event .duration {
-}
-
 .event .title {
   font-weight: 400;
 }
@@ -179,14 +172,9 @@ body {
   font-weight: 300;
 }
 
-.event .lecturer_and_title_sponsored {
-  vertical-align: top;
-  width: 100%;
-  font-weight: 300;
-}
-
-.event .lecturer_and_title_sponsored .title {
+.event.highlight_gold .title {
   font-weight: 600;
+  text-decoration: underline;
 }
 
 .event .lecturer {
@@ -196,9 +184,6 @@ body {
 .plan_pages {
   break-before: always;
   break-after: always;
-}
-
-.abstract_pages {
 }
 
 .abstract_day {
@@ -252,6 +237,18 @@ body {
 .abstract .body p {
   text-indent: 5mm;
   margin: 2mm 0mm;
+}
+
+.abstract .recommended {
+  display: none;
+}
+
+.abstract.highlight_gold .recommended {
+  display: inline;
+}
+
+.abstract.highlight_gold .title {
+  text-decoration: underline;
 }
 
 .fun_pages {

@@ -24,22 +24,19 @@
         <table class="event_table">
           <tbody>
             {% for e in d.events %}
-            <tr class="event {{e.sponsor_highlight}}">
+            <tr class="event{% if e.highlight != 'none' %} highlight_{{ e.highlight }}{% endif %}">
               <td class="hour">
                 {{ e.startTime }} {{ e.endTime }}
               </td>
               <td class="lecturer_and_title">
                 <p>{{ e.title }}</p>
-                {% if e.lecturer %}
-                  <p class="lecturer"> {{ e.lecturer }}
-                  {% if e.coauthor %}
-                    i {{ e.coauthor }}
+                  {% if e.lecturer %}
+                    <p class="lecturer"> {{ e.lecturer }}
+                    {% if e.showOrganization %}
+                    z firmy <b> {{ e.organization }} </b>
+                    {% endif %}
+                    </p>
                   {% endif %}
-                  {% if e.sponsored %}
-                  z firmy <b> {{ e.organization }} </b>
-                  {% endif %}
-                  </p>
-                {% endif %}
                 </em>
               </td>
             </tr>
