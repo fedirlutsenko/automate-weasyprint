@@ -22,6 +22,10 @@ In order to run the project you need following dependencies:
 - python3
 - (optional) python3-venv
 
+### Windows
+
+Because of weasyprint dependency, currently, Only Windows 11 64-bit is supported. Additionally, you will need [GTK3 for Windows](https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer/releases) (please refer to [weasyprint page](https://doc.courtbouillon.org/weasyprint/stable/first_steps.html#windows)) to run this project.
+
 ### Install requirements
 
 You can install requirements for your system:
