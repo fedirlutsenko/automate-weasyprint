@@ -80,6 +80,11 @@ body {
   text-decoration: underline;
 }
 
+.name.organizer {
+  color: red;
+  text-decoration: underline;
+}
+
 .organization {
   padding-top: 3px;
   margin: auto;
@@ -93,6 +98,11 @@ body {
 }
 
 .organization.gold {
+  font-weight: bold;
+  color: black;
+}
+
+.organization.organizer {
   font-weight: bold;
   color: black;
 }

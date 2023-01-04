@@ -35,6 +35,10 @@ p {
   margin: 5mm;
 }
 
+.event_day {
+  break-inside: avoid;
+}
+
 .event {
   font-size: 26px;
   border-bottom: solid white 4mm;

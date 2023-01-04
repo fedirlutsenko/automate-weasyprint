@@ -1,395 +1,220 @@
-
 @page {
-  size: A5;
-  marks: crop;
-  margin: 15mm;
+	size: A5;
+	marks: crop;
+	margin: 15mm;
 }
-
 @page cover {
-  size: A5;
-  marks: crop;
-  margin: 0mm;
+	size: A5;
+	marks: crop;
+	margin: 0mm;
 }
-
-
 html {
-  font-family: 'Roboto', sans-serif;
-  height: 100%;
+	font-family: 'Roboto', sans-serif;
+	height: 100%;
 }
-
 body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
+	margin: 0;
 }
-
-.blank {
-  page: blank;
-  height: 214mm;
-  break-after: always;
-  break-before: always;
+.shortened_event_day, .long_event, .places__wrapper, .contact {
+	break-inside: avoid;
 }
-
-.title_page {
-  page: cover;
-  margin: -2mm;
-  height: 214mm;
-  width: 100%;
-  align-content: stretch;
-  align-items: stretch;
-  display: flex;
-  flex-direction: column;
-  break-after: always;
+.section, .long_event_day:not(:last-child), .shortened_event_day:not(:last-child) {
+	break-after: always;
 }
-
-.title_page .top {
-  background-color: #16b1fb;
-  width: 158mm;
-  height: 20mm;
+.cover_page {
+	page: cover;
+	margin: -2mm;
+	height: 214mm;
+	width: 148mm;
+	align-content: stretch;
+	align-items: stretch;
+	display: flex;
+	flex-direction: column;
 }
-
-.title_page .content {
-  min-width: 148mm;
-  height: 174mm;
+.stripe {
+	background-color: #16b1fb;
+	width: 158mm;
+	height: 20mm;
 }
-
-.title_page .bottom {
-  background-color: #16b1fb;
-  width: 158mm;
-  height: 20mm;
+.cover_page__content {
+	min-width: 148mm;
+	height: 174mm;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
 }
-
-.zosia_title {
-  margin: 20mm;
-  margin-top: 30mm;
-  margin-bottom: 10mm;
-  text-align: center;
-  font-size: 35px;
+.front_page__title {
+	text-align: center;
+	font-size: 35px;
 }
-
-.zosia_logo {
-  margin: 20mm;
-  margin-top: 10mm;
-  margin-bottom: 5mm;
+.conference_logo__image {
+	width: 80%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
-
-.date_and_place {
-  margin: 0mm 20mm;
-  text-align: center;
-  font-size: 20px;
+.front_page__date_and_place {
+	text-align: center;
+	font-size: 20px;
 }
-
-.uwr_logo {
-  padding-top: 11mm;
-  padding-left: 1mm;
-  width: 65mm;
-  margin: 5mm;
+.organizer_logos {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
 }
-
-.ksi_logo {
-  padding-top: 13.5mm;
-  padding-left: 4mm;
-  margin: 5mm;
+.organizer_logo {
+	width: 45%;
 }
-
-.ksi_logo img {
-  width: 72mm;
-  height: auto;
+.organizer_logo__image {
+	width: 100%;
 }
-
-.logo_wrapper {
-  margin-top: 10mm;
-  margin-left: 0;
-  margin-bottom: 10mm;
-  width: 140mm;
-  display: flex;
-  flex-direction: row;
-  align-content: stretch;
-  align-items: stretch;
+.info_page {
+	height: 180mm;
+	position: relative;
 }
-
 .contact {
-  margin: 2mm;
-  margin-top: 150mm;
-  border-left: 2px solid black;
-  padding-left: 2mm;
-  font-weight: 300;
+	position: absolute;
+	bottom: 0;
+	padding-left: 2mm;
+	border-left: 2px solid black;
+	font-weight: 300;
 }
-
-.contact b {
-  font-weight: 600;
+.contact__title {
+	font-weight: 600;
 }
-
-.place {
-  margin: 2mm;
-  border-left: 2px solid black;
-  padding-left: 2mm;
+.shortened_event_day__table {
+	width: 100%;
+	border-collapse: collapse;
 }
-
-.event_day {
-  break-inside: avoid;
+.shortened_event_day__name {
+	font-size: 25px;
+	margin: 5mm;
 }
-
-.event_table {
-  width: 100%;
-  border-collapse: collapse;
+.shortened_event {
+	font-size: 14px;
+	border-bottom: solid white 2mm;
 }
-
-.event_day .day_name {
-  font-size: 25px;
-  margin: 5mm;
+.shortened_event__time {
+	width: 18mm;
+	vertical-align: top;
+	font-weight: 100;
+	height: 100%;
 }
-
-.event {
-  font-size: 14px;
-  border-bottom: solid white 2mm;
+.shortened_event__hour {
+	padding-left: 1mm;
+	border-left: 2px solid black;
 }
-
-.event .hour_container {
-  width: 18mm;
-  vertical-align: top;
-  font-weight: 100;
-  height: 100%;
+.shortened_event__title {
+	font-weight: 400;
 }
-
-.event .hour {
-  padding-left: 1mm;
-  border-left: 2px solid black;
+.long_event__recommended {
+	font-weight: 200;
+	font-size: 14px;
 }
-
-.event .title {
-  font-weight: 400;
+.shortened_event__lecturer_and_title {
+	vertical-align: top;
+	width: 100%;
+	font-weight: 300;
 }
-
-.event .recommended {
-  font-weight: 200;
-  font-size: 14px;
+.shortened_event.highlight_gold .shortened_event__title {
+	font-weight: 600;
+	text-decoration: underline;
 }
-
-.event .lecturer_and_title {
-  vertical-align: top;
-  width: 100%;
-  font-weight: 300;
+.long_event {
+	border-left: 2px solid black;
+	padding-left: 2mm;
+	margin: 4mm 0mm;
 }
-
-.event.highlight_gold .title {
-  font-weight: 600;
-  text-decoration: underline;
+.long_event__title {
+	font-size: 18px;
+	font-weight: 400;
 }
-
-.event .lecturer {
-  white-space: nowrap;
+.long_event__recommended {
+	font-weight: 400;
+	font-size: 16px;
+	font-style: italic;
 }
-
-.plan_pages {
-  break-before: always;
-  break-after: always;
+.long_event__lecturer {
+	font-size: 16px;
+	font-weight: 300;
 }
-
-.abstract_day {
-  break-before: always;
+.long_event__body {
+	font-weight: 300;
+	font-size: 14px;
+	text-align: justify;
 }
-
-.abstract {
-  border-left: 2px solid black;
-  break-inside: avoid;
-  padding-left: 2mm;
-  margin: 4mm 0mm;
+.long_event__paragraph {
+	text-indent: 5mm;
+	margin: 2mm 0mm;
 }
-
-.abstract .logo {
-  position: absolute;
-  left: -40px;
-  height: 25px;
+.long_event__recommended {
+	display: none;
 }
-
-.abstract .title_sponsored {
-  font-size: 18px;
-  font-weight: 600;
+.long_event.highlight_gold .long_event__recommended {
+	display: inline;
 }
-
-.abstract .title {
-  font-size: 18px;
-  font-weight: 400;
+.long_event.highlight_gold .long_event__title {
+	text-decoration: underline;
 }
-
-.abstract .recommended {
-  font-weight: 400;
-  font-size: 16px;
-  font-style: italic;
+.places__wrapper {
+	font-size: 13px;
+	font-weight: 300;
+	text-align: justify;
 }
-
-.abstract .lecturer {
-  font-size: 16px;
-  font-weight: 300;
+.locations {
+	margin-bottom: 0.8rem;
 }
-
-.abstract .time {
-  font-size: 18px;
+.places__name_and_distance {
+	justify-content: space-between;
+	font-weight: 400;
 }
-
-.abstract .body {
-  font-weight: 300;
-  font-size: 14px;
-  text-align: justify;
+.places__address {
+	font-weight: 200;
+	font-style: italic;
+	color: #646464;
 }
-
-.abstract .body p {
-  text-indent: 5mm;
-  margin: 2mm 0mm;
+.places__row {
+	display: flex;
 }
-
-.abstract .recommended {
-  display: none;
+.hiking__distance {
+	width: 3.2cm;
+	text-align: right;
 }
-
-.abstract.highlight_gold .recommended {
-  display: inline;
+.hiking__height {
+	width: 5.9cm;
+	text-align: right;
 }
-
-.abstract.highlight_gold .title {
-  text-decoration: underline;
+.hiking__time {
+	width: 4.7cm;
+	text-align: right;
 }
-
-.fun_pages {
-  font-size: 13px;
-  font-weight: 300;
-  text-align: justify;
+.hiking__name {
+	font-weight: 400;
+	width: 4cm;
+	text-align: left;
+	overflow-wrap: normal;
 }
-
-img {
-  max-width:100%;
-  max-height:100%;
+.last_page {
+	break-before: left;
 }
-
-.meal_ticket {
-  border-style: dashed;
-  border-width: 1px 0px;
-  border-collapse: collapse;
-  height: 15mm;
+.sponsors__row {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+	height: 154mm;
 }
-
-.meal_name {
-  line-height: 15mm;
-  text-align: center;
+.sponsor {
+	width: 45%;
 }
-
-.sponsor_title {
-  padding: 5mm;
-  font-size: 30px;
-  text-align: center;
-  font-weight: 200;
+.sponsor__image {
+	width: 100%;
+	height: 100%;
 }
-
-.fingo_logo,.tsg_logo,.siemens_logo,.antmicro_logo{
-  margin: 0 auto;
-  width: 158mm;
-  height: 35mm;
-}
-
-.fingo_logo {
-  background: url(../assets/fingo.svg) no-repeat center center;
-  background-size: 70%;
-}
-
-.tsg_logo {
-  background: url(../assets/TSG_logotyp_RED.svg) no-repeat center center;
-  height: 45mm;
-  background-size: 65%;
-}
-
-.siemens_logo {
-  background: url(../assets/Siemens_logo.svg) no-repeat center center;
-  background-size: 70%;
-}
-
-.antmicro_logo {
-  background: url(../assets/antmicro-color.svg) no-repeat center center;
-  background-size: 55%;
-}
-
-.locations-page {
-  break-before: always;
-  break-inside: avoid;
-}
-
-/* layout */
-.locations-page .row {
-  display: flex;
-}
-.locations-page .flex-right {
-  justify-content: flex-end;
-}
-.locations-page .flex-left {
-  justify-content: flex-start;
-}
-.locations-page .flex-split {
-  justify-content: space-between;
-}
-.locations-page .col {
-  display: flex;
-  flex-direction: column;
-}
-
-/* font */
-.locations-page .fw-200 {
-  font-weight: 200;
-}
-.locations-page .fw-300 {
-  font-weight: 300;
-}
-.locations-page .fw-400 {
-  font-weight: 400;
-}
-.locations-page .fw-500 {
-  font-weight: 500;
-}
-.locations-page .fw-600 {
-  font-weight: 600;
-}
-.locations-page .grayout {
-  font-style: italic;
-  color: #646464;
-}
-.locations-page .smaller {
-  font-size: 0.75rem;
-}
-
-/* module */
-.locations-page ul{
-  list-style-type: none;
-  padding: 0;
-}
-.locations-page .places-title{
-  margin-bottom: 1.85rem;
-}
-.locations-page .places-subtitle{
-  margin: 1.45rem 0;
-}
-.locations-page .places-subtitle:first-child{
-  margin-top: 0;
-}
-.locations-page ul{
-  list-style-type: none;
-  padding: 0;
-}
-.locations-page .location {
-  margin-bottom: 0.8rem;
-}
-.locations-page .hiking .distance {
-  width: 3.2cm;
-  text-align: right;
-}
-.locations-page .hiking .height {
-  width: 5.9cm;
-  text-align: right;
-}
-.locations-page .hiking .time {
-  width: 4.7cm;
-  text-align: right;
-}
-.locations-page .hiking .name  {
-  width: 4cm;
-  text-align: left;
-  overflow-wrap: normal;
+.sponsors__title {
+	padding: 5mm;
+	font-size: 30px;
+	text-align: center;
+	font-weight: 200;
 }

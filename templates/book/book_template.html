@@ -14,26 +14,38 @@
   </head>
 
   <body>
-    <div class="title_page">
-      <div class="top"></div>
-      <div class="content">
-        <div class="zosia_title">Zimowy Obóz Studentów Informatyki A</div>
-        <div class="zosia_logo"><img src="../../assets/zosia.png" /></div>
-        <div class="date_and_place">
+    <div class="cover_page front_page section">
+      <div class="stripe"></div>
+      <div class="cover_page__content">
+        <div class="front_page__title">Zimowy Obóz Studentów Informatyki A</div>
+        <div class="front_page__conference_logo">
+          <img class="conference_logo__image" src="../../assets/zosia.png" />
+        </div>
+        <div class="front_page__date_and_place">
           {{ place.localization }} <br />
           {{ camp_date }}
         </div>
-        <div class="logo_wrapper">
-          <div class="uwr_logo"><img src="../../assets/logo_UWr.png" /></div>
-          <div class="ksi_logo"><img src="../../assets/logo_KSI.svg" /></div>
+        <div class="organizer_logos">
+          <div class="organizer_logo">
+            <img
+              class="organizer_logo__image"
+              src="../../assets/logo_UWr.png"
+            />
+          </div>
+          <div class="organizer_logo">
+            <img
+              class="organizer_logo__image"
+              src="../../assets/logo_KSI.svg"
+            />
+          </div>
         </div>
       </div>
-      <div class="bottom"></div>
+      <div class="stripe"></div>
     </div>
 
-    <div class="info_page">
+    <div class="info_page section">
       <div class="contact">
-        <b> Kontakt z organizatorami </b> <br />
+        <span class="contact__title">Kontakt z organizatorami</span>
         <table>
           {% for person, phone in contacts.items() %}
           <tr>
@@ -45,21 +57,23 @@
       </div>
     </div>
 
-    <div class="plan_pages">
-      {% for d in days %}
-      <div class="event_day">
-        <div class="day_name">{{ d.name }}</div>
-        <table class="event_table">
+    <div class="shortened_event_days__wrapper section">
+      {% for d in days %} {% if d.events %}
+      <div class="shortened_event_day">
+        <div class="shortened_event_day__name">{{ d.name }}</div>
+        <table class="shortened_event_day__table">
           <tbody>
             {% for e in d.events %}
             <tr
-              class="event{% if e.highlight != 'none' %} highlight_{{ e.highlight }}{% endif %}"
+              class="shortened_event{% if e.highlight != 'none' %} highlight_{{ e.highlight }}{% endif %}"
             >
-              <td class="hour_container">
-                <div class="hour">{{ e.startTime }} {{ e.endTime }}</div>
+              <td class="shortened_event__time">
+                <div class="shortened_event__hour">
+                  {{ e.startTime }} {{ e.endTime }}
+                </div>
               </td>
-              <td class="lecturer_and_title">
-                <div class="title">{{ e.title }}</div>
+              <td class="shortened_event__lecturer_and_title">
+                <div class="shortened_event__title">{{ e.title }}</div>
                 {% if e.lecturer %}
                 <em>
                   {{ e.lecturer }} {% if e.showOrganization %} z firmy
@@ -73,112 +87,122 @@
           </tbody>
         </table>
       </div>
-      {% endfor %}
+      {% endif %} {% endfor %}
     </div>
-    <div class="abstract_pages">
-      {% for d in days %}
-      <div class="abstract_day">
+
+    <div class="long_event_days__wrapper section">
+      {% for d in days %} {% if d.hasLecture %}
+      <div class="long_event_day">
         {% for e in d.events %} {% if e.type == "lecture" %}
         <div
-          class="abstract{% if e.highlight != 'none' %} highlight_{{ e.highlight }}{% endif %}"
+          class="long_event{% if e.highlight != 'none' %} highlight_{{ e.highlight }}{% endif %}"
         >
-          <div class="recommended">Wykład polecany</div>
-          <div class="title">{{ e.title }}</div>
+          <div class="long_event__recommended">Wykład polecany</div>
+          <div class="long_event__title">{{ e.title }}</div>
           <div>{{ d.session_name }} {{ e.startTime }} | {{ e.duration }}</div>
-          <div class="lecturer">
+          <div class="long_event__lecturer">
             <em>
               {{ e.lecturer }} {% if e.showOrganization %} z firmy
               <b> {{ e.organization }} </b>
               {% endif %}
             </em>
           </div>
-          <div class="body">
+          <div class="long_event__body">
             {% for paragraph in e.abstract %}
-            <p>{{ paragraph }}</p>
+            <p class="long_event__paragraph">{{ paragraph }}</p>
             {% endfor %}
           </div>
         </div>
         {% endif %} {% endfor %}
       </div>
-      {% endfor %}
+      {% endif %} {% endfor %}
     </div>
 
-    <div class="fun_pages locations-page">
-      <h2 class="places-title">Pobliskie miejsca warte odwiedzenia</h2>
+    <div class="places__wrapper section">
+      <h2 class="places__title">Pobliskie miejsca warte odwiedzenia</h2>
 
-      <ul class="locations attractions">
+      <div class="attractions">
         {% for a in place.attractions %}
-        <li class="location attraction">
-          <div class="row flex-split fw-400">
+        <div class="locations places">
+          <div class="places__row places__name_and_distance">
             <span>{{ a.name }}</span>
             <span>{{ a.distance }} / {{ a.time }}</span>
           </div>
-          <div class="row fw-200 grayout">
+          <div class="places__row places__address">
             <span>{{ a.address }}</span>
           </div>
-          <div class="row">
+          <div class="places__row">
             <span> {{a.description}} </span>
           </div>
           {% if a.pricing %}
-          <div class="row">
+          <div class="places__row">
             <span> <b>Cennik:</b> {{ a.pricing | join(', ') }} </span>
           </div>
           {% endif %}
-        </li>
+        </div>
         {% endfor %}
-      </ul>
+      </div>
+
+      <div class="restaurants__wrapper">
+        <h3 class="places__subtitle">Restauracje</h3>
+        <div class="restaurants">
+          {% for r in place.restaurants %}
+          <div class="locations places">
+            <div class="places__row places__name_and_distance">
+              <span class="name">{{ r.name }}</span>
+              <span class="distance">{{ r.distance }} / {{ r.time }}</span>
+            </div>
+            <div class="places__row places__address">
+              <span class="address">{{ r.address }}</span>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="hiking__wrapper">
+        <h3 class="places__subtitle">Piesze wędrówki</h3>
+        <table class="hiking">
+          <tbody>
+            {% for h in place.hiking %}
+            <tr class="locations hiking">
+              <td class="hiking__name">{{ h.name }}</td>
+              <td class="hiking__distance">{{ h.distance }}</td>
+              <td class="hiking__time">{{ h.time }}</td>
+              <td class="hiking__height">{{ h.height }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
 
       {% if place.transport %}
-      <h3 class="places-subtitle">Transport publiczny</h3>
-      <div class="locations transport">
-        <p>{{ place.transport }}</p>
+      <div class="transport__wrapper">
+        <h3 class="places__subtitle">Transport publiczny</h3>
+        <div class="transport">
+          <p>{{ place.transport }}</p>
+        </div>
       </div>
       {% endif %}
     </div>
 
-    <div class="fun_pages locations-page">
-      <h3 class="places-subtitle">Restauracje</h3>
-      <ul class="locations restaurants">
-        {% for r in place.restaurants %}
-        <li class="location restaurant">
-          <div class="row flex-split fw-400">
-            <span class="name">{{ r.name }}</span>
-            <span class="distance">{{ r.distance }} / {{ r.time }}</span>
+    <div class="cover_page last_page section">
+      <div class="stripe"></div>
+      <div class="cover_page__content sponsors">
+        <div class="sponsors__title">Sponsorzy</div>
+        <div class="sponsors__row">
+          {% for s in sponsors %}
+          <div class="sponsor">
+            <img
+              class="sponsor__image"
+              src="{{ s.path_to_logo }}"
+              width="100%"
+            />
           </div>
-          <div class="row flex-start fw-200 grayout">
-            <span class="address">{{ r.address }}</span>
-          </div>
-        </li>
-        {% endfor %}
-      </ul>
-
-      <h3 class="places-subtitle">Piesze wędrówki</h3>
-      <table class="locations hiking">
-        <tbody>
-          {% for h in place.hiking %}
-          <tr class="location hiking">
-            <td class="name fw-400">{{ h.name }}</td>
-            <td class="distance">{{ h.distance }}</td>
-            <td class="time">{{ h.time }}</td>
-            <td class="height">{{ h.height }}</td>
-          </tr>
           {% endfor %}
-        </tbody>
-      </table>
-    </div>
-
-    <div class="blank"></div>
-
-    <div class="title_page">
-      <div class="top"></div>
-      <div class="content">
-        <div class="sponsor_title">Sponsorzy</div>
-        <div class="fingo_logo"></div>
-        <div class="tsg_logo"></div>
-        <div class="siemens_logo"></div>
-        <div class="antmicro_logo"></div>
+        </div>
       </div>
-      <div class="bottom"></div>
+      <div class="stripe"></div>
     </div>
   </body>
 </html>

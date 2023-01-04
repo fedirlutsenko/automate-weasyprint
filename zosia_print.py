@@ -55,6 +55,7 @@ def generate_schedule(path: str, data: Dict[str, Any]) -> List[Dict[str, Any]]:
                         "name": day_name,
                         "session_name": session_name,
                         "events": events,
+                        "hasLecture": any(e['type'] == "lecture" for e in events),
                     })
 
                 day_name = row[0].title()
@@ -70,8 +71,8 @@ def generate_schedule(path: str, data: Dict[str, Any]) -> List[Dict[str, Any]]:
                 continue
 
             (start_time, lecturer, printing_title, title, end_time,
-             break_time, event_type, comments, highlighted, service,
-             additional_comments, duration) = row
+            break_time, event_type, comments, highlighted, service,
+            additional_comments, duration) = row
 
             # NOTE: these structures are backward compatible with old templates
             if event_type.lower() != "lecture":
@@ -87,7 +88,7 @@ def generate_schedule(path: str, data: Dict[str, Any]) -> List[Dict[str, Any]]:
             # TODO: Handle some typos or other small mismatches
             if title not in lectures:
                 print_warning(f"Lecture '{title}' not found in data file. "
-                              f"Skipping...")
+                                f"Skipping...")
                 continue
 
             lecture_data = lectures[title]
@@ -97,6 +98,20 @@ def generate_schedule(path: str, data: Dict[str, Any]) -> List[Dict[str, Any]]:
             if '\r\n' in lecture_data['abstract']:
                 paragraph_mark = '\r\n\r\n'
 
+            organization = lecture_data['author__preferences__organization__name']
+
+            highlightType = 'none'
+
+            # Highlight Lecture
+            if highlighted == 'Yes':
+                sponsor = next((x for x in data['sponsors'] if x['name'] == organization), None)
+                
+                if sponsor is None:
+                    print_warning(f"Lecture '{title}' should be highlighted but organisation '{organization}' was not found in the data file. "
+                                    f"Skipping highlighting...")
+                else:
+                    highlightType = sponsor['sponsor_type']
+
             events.append({
                 "type": event_type.lower(),
                 "startTime": start_time,
@@ -105,16 +120,16 @@ def generate_schedule(path: str, data: Dict[str, Any]) -> List[Dict[str, Any]]:
                 "abstract": lecture_data['abstract'].split(paragraph_mark),
                 "title": printing_title,
                 "lecturer": lecturer,
-                # TODO: Add logic to Sponsor highlight
                 "showOrganization": highlighted == 'Yes',
-                "highlight": 'gold' if highlighted == 'Yes' else 'none',
-                "organization": lecture_data['author__preferences__organization__name'],
+                "highlight": highlightType,
+                "organization": organization,
             })
 
     schedule.append({
         "name": day_name,
         "session_name": session_name,
         "events": events,
+        "hasLecture": any(e['type'] == "lecture" for e in events),
     })
 
     return schedule
@@ -162,12 +177,28 @@ def extract_preferences(data: Dict[str, Any]) -> List[Dict[str, Any]]:
                           f"and will be truncated.")
             organization = organization[:80] + '...'
 
+        # Highlight Organization
+        sponsor = next((x for x in data['sponsors'] if x['name'] == organization), None)
+        highlightType = 'none'
+
+        if p['user__person_type'] != "Sponsor" and sponsor is not None:
+            print_warning(f"'{p['user__first_name']} {p['user__last_name']}' is from the '{organization}' but is not listed as a sponsor"
+                            f"Skipping highlighting...")
+
+        if p['user__person_type'] == "Sponsor" and sponsor is None:
+            print_warning(f"'{p['user__first_name']} {p['user__last_name']}' is listed as a sponsor but organisation '{organization}' was not found in the data file."
+                            f"Skipping highlighting...")
+
+        if p['user__person_type'] == "Sponsor" and sponsor is not None:
+            highlightType = sponsor['sponsor_type']
+        elif p['user__person_type'] == "Organizer":
+            highlightType = 'organizer'
+
         pref.append({
             "first_name": p["user__first_name"],
             "last_name": p["user__last_name"],
             "organization": organization,
-            # TODO: Add highlights
-            # "highlight": HIGHLIGHTED_ORGANIZATIONS[p["organization__name"]] if p["organization__name"] in HIGHLIGHTED_ORGANIZATIONS else "none",
+            "highlight": highlightType,
             "dinner_1": p["dinner_day_1"],
             "breakfast_2": p["breakfast_day_2"],
             "dinner_2": p["dinner_day_2"],
@@ -235,8 +266,7 @@ def main() -> None:
     print(f"Zosia {edition} - camp date: {zosia_date}")
 
     # TODO: Validate data
-    # TODO: Load information about highlighted organizations
-    # and contacts to organizers
+    # TODO: Load information about contacts to organizers
 
     contacts = {
       "Aneta Kos": "111 222 333",
@@ -252,7 +282,8 @@ def main() -> None:
             "days": schedule,
             "place": place,
             "contacts": contacts,
-            "camp_date": zosia_date
+            "camp_date": zosia_date,
+            "sponsors": data['sponsors']
         })
 
     if render_all or args.render.startswith('schedule'):
