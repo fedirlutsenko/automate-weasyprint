@@ -39,6 +39,8 @@ body {
 .cover_page__content {
 	min-width: 148mm;
 	height: 174mm;
+	padding-left: 5mm;
+	padding-right: 5mm;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
