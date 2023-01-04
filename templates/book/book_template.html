@@ -91,7 +91,7 @@
     </div>
 
     <div class="long_event_days__wrapper section">
-      {% for d in days %} {% if d.hasLecture %}
+      {% for d in days %} {% if d.has_lecture %}
       <div class="long_event_day">
         {% for e in d.events %} {% if e.type == "lecture" %}
         <div
