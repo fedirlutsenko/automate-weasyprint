@@ -50,7 +50,7 @@ def generate_schedule(path: str, data: Dict[str, Any]) -> List[Dict[str, Any]]:
         events: List[Dict[str, Any]] = []
 
         def has_lecture(events: List[Dict[str, Any]]) -> bool:
-            return any(e['type'].lower == "lecture" for e in events)
+            return any(e['type'].lower() == "lecture" for e in events)
 
         for row in reader:
             if row[0].lower() in weekdays:
@@ -108,7 +108,7 @@ def generate_schedule(path: str, data: Dict[str, Any]) -> List[Dict[str, Any]]:
             highlightType = 'none'
 
             # Highlight Lecture
-            if highlighted.lower == "yes":
+            if highlighted.lower() == "yes":
                 if organization not in sponsors:
                     print_warning(
                         f"Lecture '{title}' should be highlighted, but "
@@ -125,7 +125,7 @@ def generate_schedule(path: str, data: Dict[str, Any]) -> List[Dict[str, Any]]:
                 "abstract": lecture_data['abstract'].split(paragraph_mark),
                 "title": printing_title,
                 "lecturer": lecturer,
-                "showOrganization": highlighted.lower == "yes",
+                "showOrganization": highlighted.lower() == "yes",
                 "highlight": highlightType,
                 "organization": organization,
             })
@@ -185,13 +185,12 @@ def extract_preferences(data: Dict[str, Any]) -> List[Dict[str, Any]]:
                           f"and will be truncated.")
             organization = organization[:80] + '… '
 
-        person_type = p['user__person_type'].lower
+        person_type = p['user__person_type'].lower()
         first_name = p['user__first_name']
         last_name = p['user__last_name']
 
         # Highlight Organization
         highlight_type = "none"
-
         if person_type != "sponsor" and organization in sponsors:
             print_warning(f"'{first_name} {last_name}' "
                           f"is from the '{organization}' but is not listed as "
