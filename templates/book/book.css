@@ -57,7 +57,14 @@ body {
 }
 .front_page__date_and_place {
 	text-align: center;
-	font-size: 20px;
+}
+.front_page__place {
+	font-size: 23px;
+}
+.front_page__date {
+	margin-top: 2mm;
+	font-style: italic;
+	font-size: 16px;
 }
 .organizer_logos {
 	display: flex;
