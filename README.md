@@ -7,9 +7,9 @@ This repository also [contains information](/data/) regarding lectures schedules
 ## Overview of solution
 
 - We generate HTML templates for Weasyprint using following data:
-  * places - yaml file that contains descriptions of attractions that are available nearby, needs to be updated manually to fit the location. Those files are kept in this repository.
+  * place - yaml file that contains descriptions of attractions that are available nearby, needs to be updated manually to fit the location. Those files are kept in this repository in `data/places`.
   * schedule - csv file that contains schedule of the conference generated in the scheduler-spreadsheet.
-  * data.json - json file to be exported from the Zosia website.
+  * data - json file to be exported from the Zosia website.
 
 - Templates and PDFs generation, as well as data validation is done by `zosia_print.py` script.
 - Generated files will be placed in the `gen` directory.
@@ -54,4 +54,5 @@ python3 zosia_print.py --help
 python3 zosia_print.py --place Mieszko --schedule Plan.csv
 python3 zosia_print.py --place Marcus --schedule NewPlan.csv --data some-test-data.json
 python3 zosia_print.py --place Mieszko --schedule Plan2.csv --blanks 50
+python3 zosia_print.py --schedule Plan.csv --place Marcus --render identifiers --debug
 ```
