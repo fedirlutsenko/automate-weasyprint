@@ -216,6 +216,10 @@ body {
 }
 .sponsor {
 	width: 45%;
+	display: none;
+}
+.sponsor.silver, .sponsor.gold {
+	display: block;
 }
 .sponsor__image {
 	width: 100%;

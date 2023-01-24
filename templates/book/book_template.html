@@ -192,7 +192,7 @@
         <div class="sponsors__title">Sponsorzy</div>
         <div class="sponsors__row">
           {% for s in sponsors %}
-          <div class="sponsor">
+          <div class="sponsor {{ s.sponsor_type }}">
             <img
               class="sponsor__image"
               src="{{ s.path_to_logo }}"
