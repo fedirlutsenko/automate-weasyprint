@@ -47,10 +47,10 @@
       <div class="contact">
         <span class="contact__title">Kontakt z organizatorami</span>
         <table>
-          {% for person, phone in contacts.items() %}
+          {% for person in contacts %}
           <tr>
-            <td>{{ person }}</td>
-            <td>{{ phone }}</td>
+            <td>{{ person.user__first_name }} {{ person.user__last_name }}:</td>
+            <td class="contact__phone">{{ person.phone_number }}</td>
           </tr>
           {% endfor %}
         </table>

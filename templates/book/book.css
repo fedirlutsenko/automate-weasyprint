@@ -92,6 +92,9 @@ body {
 .contact__title {
 	font-weight: 600;
 }
+.contact__phone {
+	font-style: italic;
+}
 .shortened_event_day__table {
 	width: 100%;
 	border-collapse: collapse;

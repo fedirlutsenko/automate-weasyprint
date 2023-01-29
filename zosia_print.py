@@ -284,13 +284,6 @@ def main() -> None:
     print(f"Zosia {edition} - camp date: {zosia_date}")
 
     # TODO: Validate data
-    # TODO: Load information about contacts to organizers
-
-    contacts = {
-      "Aneta Kos": "111 222 333",
-      "Jan Kowalski": "222 333 444",
-      "Bartosz Kurek": "123 456 789",
-    }
 
     render_all = args.render == 'all'
     if render_all or args.render.startswith('book'):
@@ -299,7 +292,7 @@ def main() -> None:
         render_document("book/book_template.html", {
             "days": schedule,
             "place": place,
-            "contacts": contacts,
+            "contacts": data['contacts'],
             "camp_date": zosia_date,
             "sponsors": data['sponsors']
         })
