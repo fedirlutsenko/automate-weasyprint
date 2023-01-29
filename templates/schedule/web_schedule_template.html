@@ -1,42 +1,41 @@
-
 <style>
-  .gold_sponsor_highlight > .collapsible-header {
+  .highlight_gold > .collapsible-header {
     background-color: #ffd700;
   }
 </style>
 
 {% for d in days %}
-<h3> {{ d.name }} </h3>
+<h3>{{ d.name }}</h3>
 <ul class="collapsible">
   {% for e in d.events %}
-    <li class="{{e.sponsor_highlight}}">
-      <div class="collapsible-header {% if e.type != "LECTURE" %} collapsible-disabled {% endif %}">
-        {{ e.startTime }} | {{ e.duration }}min | {{e.title}}
-        {% if e.lecturer %}
-        | {{ e.lecturer }}
-          {% if e.coauthor %}
-          i {{ e.coauthor }}
-          {% endif %}
-          {% if e.sponsored %}
-          z firmy {{ e.organization }}
-          {% endif %}
-        {% endif %}
+  <li
+    class="event{% if e.highlight != 'none' %} highlight_{{ e.highlight }}{% endif %}"
+  >
+    <div
+      class="collapsible-header{% if e.type != 'lecture' %} collapsible-disabled{% endif %}"
+    >
+      {{ e.startTime }} {% if e.duration %} | {{ e.duration }} {% endif %} |
+      {{e.title}} {% if e.lecturer %} | {{ e.lecturer }} {% if
+      e.showOrganization %} z firmy {{ e.organization }} {% endif %} {% endif %}
     </div>
-    {% if e.type == "LECTURE" %}
+    {% if e.type == "lecture" %}
     <div class="collapsible-body">
-        {% for p in e.abstract %}
-        <p> {{ p }} </p>
-        {% endfor %}
+      {% for p in e.abstract %}
+      <p>{{ p }}</p>
+      {% endfor %}
     </div>
     {% endif %}
-    </li>
+  </li>
   {% endfor %}
 </ul>
 {% endfor %}
 
 <script>
-  $(document).ready(function(){
-    $('.collapsible').collapsible();
-    $('.collapsible').find('> li > .collapsible-disabled').off('click.collapse').css('pointer-events', 'none');
+  $(document).ready(function () {
+    $(".collapsible").collapsible();
+    $(".collapsible")
+      .find("> li > .collapsible-disabled")
+      .off("click.collapse")
+      .css("pointer-events", "none");
   });
 </script>

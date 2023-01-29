@@ -16,26 +16,31 @@ body {
   margin: 0;
 }
 
-.event.gold_sponsor_highlight .lecturer_and_title {
+p {
+  margin: 0
+}
+
+.event.highlight_gold .lecturer_and_title {
   background-color: #ffffff60;
   font-weight: 600;
 }
 
 .event_table {
-  page-break-inside: avoid;
   width: 100%;
-  display: table;
   border-collapse: collapse;
 }
 
 .event_day .day_name {
   font-size: 50px;
-  margin: 10mm;
+  margin: 5mm;
+}
+
+.event_day {
+  break-inside: avoid;
 }
 
 .event {
   font-size: 26px;
-  display: table-row;
   border-bottom: solid white 4mm;
 }
 
@@ -43,7 +48,6 @@ body {
   border-left: 4px solid black;
   width: 30mm;
   padding-left: 2mm;
-  display: table-cell;
   vertical-align: top;
   float: left;
   font-weight: 300;
@@ -51,7 +55,6 @@ body {
 
 .event .lecturer_and_title {
   vertical-align: top;
-  display: table-cell;
   width: 100%;
   font-weight: 400;
 }
@@ -63,6 +66,6 @@ body {
 
 .plan {
   columns: 2;
-  column-gap: 20mm;
+  column-fill: auto;
+  column-gap: 15mm;
 }
-
