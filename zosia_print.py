@@ -14,6 +14,8 @@ from jinja2 import Environment, FileSystemLoader
 from weasyprint import HTML
 from weasyprint.text.fonts import FontConfiguration
 
+from babel.dates import format_date, format_interval
+
 
 PLACES_PATH = "./data/places"
 SCHEDULES_PATH = "./data/schedules"
@@ -273,13 +275,8 @@ def main() -> None:
     # Render Zosia date
     start_date = date.fromisoformat(data["zosia"]["start_date"])
     end_date = date.fromisoformat(data["zosia"]["end_date"])
-    # NOTE: %-d date format is not supported on Windows ...
-    # so this is as workaround, end_date.day is used
-    end_day = end_date.day
-    zosia_date = f"{start_date.day} - {end_day} {end_date:%B %Y}"
-    if start_date.month != end_date.month:
-        zosia_date = (
-            f"{start_date.day} {start_date:%B} - {end_day} {end_date:%B %Y}")
+
+    zosia_date = format_interval(start_date, end_date, 'yMMMMd', locale='pl')
 
     print(f"Zosia {edition} - camp date: {zosia_date}")
 
