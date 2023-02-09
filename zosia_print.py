@@ -14,7 +14,7 @@ from jinja2 import Environment, FileSystemLoader
 from weasyprint import HTML
 from weasyprint.text.fonts import FontConfiguration
 
-from babel.dates import format_date, format_interval
+from babel.dates import format_interval
 
 
 PLACES_PATH = "./data/places"
