@@ -106,6 +106,7 @@ body {
 .shortened_event {
 	font-size: 14px;
 	border-bottom: solid white 2mm;
+  break-inside: avoid;
 }
 .shortened_event__time {
 	width: 18mm;
