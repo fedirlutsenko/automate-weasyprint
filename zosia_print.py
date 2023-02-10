@@ -2,7 +2,6 @@ import os
 import csv
 import sys
 import json
-import locale
 import argparse
 
 from datetime import date, timedelta
@@ -10,6 +9,7 @@ from typing import List, Dict, Any, Optional
 
 import yaml
 
+from babel.dates import format_interval, format_date
 from jinja2 import Environment, FileSystemLoader
 from weasyprint import HTML
 from weasyprint.text.fonts import FontConfiguration
@@ -20,6 +20,8 @@ SCHEDULES_PATH = "./data/schedules"
 TEMPLATES_PATH = "./templates"
 TARGET_DIR = "./gen"
 DEBUG_MODE = False
+LOCALE = 'pl'
+
 env = Environment(loader=FileSystemLoader(TEMPLATES_PATH))
 
 
@@ -36,7 +38,7 @@ def load_json_file(path: str) -> Dict[str, Any]:
 
 
 def generate_schedule(path: str, data: Dict[str, Any]) -> List[Dict[str, Any]]:
-    weekdays = [d.strftime("%A") for d in [
+    weekdays = [format_date(d, format='EEEE', locale=LOCALE) for d in [
         date.today() + timedelta(days=i) for i in range(7)]]
 
     schedule: List[Dict[str, Any]] = []
@@ -105,7 +107,7 @@ def generate_schedule(path: str, data: Dict[str, Any]) -> List[Dict[str, Any]]:
             organization = lecture_data[
                 'author__preferences__organization__name']
 
-            highlightType = 'none'
+            highlight_type = 'none'
 
             # Highlight Lecture
             if highlighted.lower() == "yes":
@@ -115,7 +117,7 @@ def generate_schedule(path: str, data: Dict[str, Any]) -> List[Dict[str, Any]]:
                         f"organization '{organization}' was not found in "
                         f"the data file. Skipping highlighting...")
                 else:
-                    highlightType = sponsors[organization]['sponsor_type']
+                    highlight_type = sponsors[organization]['sponsor_type']
 
             events.append({
                 "type": event_type.lower(),
@@ -126,7 +128,7 @@ def generate_schedule(path: str, data: Dict[str, Any]) -> List[Dict[str, Any]]:
                 "title": printing_title,
                 "lecturer": lecturer,
                 "showOrganization": highlighted.lower() == "yes",
-                "highlight": highlightType,
+                "highlight": highlight_type,
                 "organization": organization,
             })
 
@@ -262,9 +264,6 @@ def main() -> None:
     # Make sure that target directory exist
     os.makedirs(TARGET_DIR, exist_ok=True)
 
-    # Enforce polish locale to generate proper month name
-    locale.setlocale(locale.LC_ALL, 'pl_PL.utf8')
-
     # Load data
     data = load_json_file(args.data)
     place = load_yaml_file(f"{PLACES_PATH}/{args.place}.yaml")
@@ -273,13 +272,8 @@ def main() -> None:
     # Render Zosia date
     start_date = date.fromisoformat(data["zosia"]["start_date"])
     end_date = date.fromisoformat(data["zosia"]["end_date"])
-    # NOTE: %-d date format is not supported on Windows ...
-    # so this is as workaround, end_date.day is used
-    end_day = end_date.day
-    zosia_date = f"{start_date.day} - {end_day} {end_date:%B %Y}"
-    if start_date.month != end_date.month:
-        zosia_date = (
-            f"{start_date.day} {start_date:%B} - {end_day} {end_date:%B %Y}")
+
+    zosia_date = format_interval(start_date, end_date, 'yMMMMd', locale=LOCALE)
 
     print(f"Zosia {edition} - camp date: {zosia_date}")
 
