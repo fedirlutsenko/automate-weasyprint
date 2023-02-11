@@ -3,24 +3,35 @@
 	marks: crop;
 	margin: 15mm;
 }
+
 @page cover {
 	size: A5;
 	marks: crop;
 	margin: 0mm;
 }
+
 html {
 	font-family: 'Roboto', sans-serif;
 	height: 100%;
 }
+
 body {
 	margin: 0;
 }
-.shortened_event_day, .long_event, .places__wrapper, .contact {
+
+.shortened_event_day,
+.long_event,
+.places__wrapper,
+.contact {
 	break-inside: avoid;
 }
-.section, .long_event_day:not(:last-child), .shortened_event_day:not(:last-child) {
+
+.section,
+.long_event_day:not(:last-child),
+.shortened_event_day:not(:last-child) {
 	break-after: always;
 }
+
 .cover_page {
 	page: cover;
 	margin: -2mm;
@@ -31,11 +42,13 @@ body {
 	display: flex;
 	flex-direction: column;
 }
+
 .stripe {
 	background-color: #16b1fb;
 	width: 158mm;
 	height: 20mm;
 }
+
 .cover_page__content {
 	min-width: 148mm;
 	height: 174mm;
@@ -45,43 +58,53 @@ body {
 	flex-direction: column;
 	justify-content: space-around;
 }
+
 .front_page__title {
 	text-align: center;
 	font-size: 35px;
 }
+
 .conference_logo__image {
 	width: 80%;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
 }
+
 .front_page__date_and_place {
 	text-align: center;
 }
+
 .front_page__place {
 	font-size: 23px;
 }
+
 .front_page__date {
 	margin-top: 2mm;
 	font-style: italic;
 	font-size: 16px;
 }
+
 .organizer_logos {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 	flex-wrap: wrap;
 }
+
 .organizer_logo {
 	width: 45%;
 }
+
 .organizer_logo__image {
 	width: 100%;
 }
+
 .info_page {
 	height: 180mm;
 	position: relative;
 }
+
 .contact {
 	position: absolute;
 	bottom: 0;
@@ -89,127 +112,159 @@ body {
 	border-left: 2px solid black;
 	font-weight: 300;
 }
+
 .contact__title {
 	font-weight: 600;
 }
+
 .contact__phone {
 	font-style: italic;
 }
+
 .shortened_event_day__table {
 	width: 100%;
 	border-collapse: collapse;
 }
+
 .shortened_event_day__name {
 	font-size: 25px;
 	margin: 5mm;
 }
+
 .shortened_event {
 	font-size: 14px;
 	border-bottom: solid white 2mm;
+	break-inside: avoid;
 }
+
 .shortened_event__time {
 	width: 18mm;
 	vertical-align: top;
 	font-weight: 100;
 	height: 100%;
 }
+
 .shortened_event__hour {
 	padding-left: 1mm;
 	border-left: 2px solid black;
 }
+
 .shortened_event__title {
 	font-weight: 400;
 }
+
 .long_event__recommended {
 	font-weight: 200;
 	font-size: 14px;
 }
+
 .shortened_event__lecturer_and_title {
 	vertical-align: top;
 	width: 100%;
 	font-weight: 300;
 }
+
 .shortened_event.highlight_gold .shortened_event__title {
 	font-weight: 600;
 	text-decoration: underline;
 }
+
 .long_event {
 	border-left: 2px solid black;
 	padding-left: 2mm;
 	margin: 4mm 0mm;
 }
+
 .long_event__title {
 	font-size: 18px;
 	font-weight: 400;
 }
+
 .long_event__recommended {
 	font-weight: 400;
 	font-size: 16px;
 	font-style: italic;
 }
+
 .long_event__lecturer {
 	font-size: 16px;
 	font-weight: 300;
 }
+
 .long_event__body {
 	font-weight: 300;
 	font-size: 14px;
 	text-align: justify;
 }
+
 .long_event__paragraph {
 	text-indent: 5mm;
 	margin: 2mm 0mm;
 }
+
 .long_event__recommended {
 	display: none;
 }
+
 .long_event.highlight_gold .long_event__recommended {
 	display: inline;
 }
+
 .long_event.highlight_gold .long_event__title {
 	text-decoration: underline;
 }
+
 .places__wrapper {
 	font-size: 13px;
 	font-weight: 300;
 	text-align: justify;
 }
+
 .locations {
 	margin-bottom: 0.8rem;
 }
+
 .places__name_and_distance {
 	justify-content: space-between;
 	font-weight: 400;
 }
+
 .places__address {
 	font-weight: 200;
 	font-style: italic;
 	color: #646464;
 }
+
 .places__row {
 	display: flex;
 }
+
 .hiking__distance {
 	width: 3.2cm;
 	text-align: right;
 }
+
 .hiking__height {
 	width: 5.9cm;
 	text-align: right;
 }
+
 .hiking__time {
 	width: 4.7cm;
 	text-align: right;
 }
+
 .hiking__name {
 	font-weight: 400;
 	width: 4cm;
 	text-align: left;
 	overflow-wrap: normal;
 }
+
 .last_page {
 	break-before: left;
 }
+
 .sponsors__row {
 	display: flex;
 	justify-content: space-around;
@@ -217,17 +272,22 @@ body {
 	flex-wrap: wrap;
 	height: 154mm;
 }
+
 .sponsor {
 	width: 45%;
 	display: none;
 }
-.sponsor.silver, .sponsor.gold {
+
+.sponsor.silver,
+.sponsor.gold {
 	display: block;
 }
+
 .sponsor__image {
 	width: 100%;
 	height: 100%;
 }
+
 .sponsors__title {
 	padding: 5mm;
 	font-size: 30px;

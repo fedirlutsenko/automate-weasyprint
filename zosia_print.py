@@ -127,7 +127,7 @@ def generate_schedule(path: str, data: Dict[str, Any]) -> List[Dict[str, Any]]:
                 "abstract": lecture_data['abstract'].split(paragraph_mark),
                 "title": printing_title,
                 "lecturer": lecturer,
-                "showOrganization": highlighted.lower() == "yes",
+                "showOrganization": highlighted.lower() == "yes" and organization in sponsors,
                 "highlight": highlight_type,
                 "organization": organization,
             })
@@ -193,21 +193,23 @@ def extract_preferences(data: Dict[str, Any]) -> List[Dict[str, Any]]:
 
         # Highlight Organization
         highlight_type = "none"
-        if person_type != "sponsor" and organization in sponsors:
+
+        if person_type == "organizer":
+            highlight_type = "organizer"
+
+        elif person_type == "sponsor": 
+            if organization in sponsors:
+                highlight_type = sponsors[organization]['sponsor_type']
+
+            else: 
+                print_warning(f"'{first_name} {last_name}' is listed as a sponsor "
+                              f"but organization '{organization}' was not found "
+                              f"in the data file. Skipping highlighting...")
+
+        elif person_type != "sponsor" and organization in sponsors:
             print_warning(f"'{first_name} {last_name}' "
                           f"is from the '{organization}' but is not listed as "
                           f"a sponsor. Skipping highlighting...")
-
-        elif person_type == "sponsor" and organization not in sponsors:
-            print_warning(f"'{first_name} {last_name}' is listed as a sponsor "
-                          f"but organization '{organization}' was not found "
-                          f"in the data file. Skipping highlighting...")
-
-        elif person_type == "sponsor" and organization in sponsors:
-            highlight_type = sponsors[organization]['sponsor_type']
-
-        elif person_type == "organizer":
-            highlight_type = "organizer"
 
         if DEBUG_MODE:
             print(
