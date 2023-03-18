@@ -10,3 +10,6 @@ test.yaml
 
 # virtual environment
 *venv/
+
+# macOS
+.DS_Store
