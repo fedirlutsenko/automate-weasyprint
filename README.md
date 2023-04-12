@@ -25,34 +25,3 @@ In order to run the project you need following dependencies:
 ### Windows
 
 Because of weasyprint dependency, currently, Only Windows 11 64-bit is supported. Additionally, you will need [GTK3 for Windows](https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer/releases) (please refer to [weasyprint page](https://doc.courtbouillon.org/weasyprint/stable/first_steps.html#windows)) to run this project.
-
-### Install requirements
-
-You can install requirements for your system:
-```console
-python3 -m pip install -r requirements.txt
-```
-
-or create virtual environment and install dependencies inside:
-```console
-python3 -m venv zosia_print_venv
-source zosia_print_venv/bin/activate
-python3 -m pip install -r requirements.txt
-```
-
-_Note: If you want to deactivate your virtual environment use_ `deactivate` _command._
-
-### Run
-
-```console
-python3 zosia_print.py <options>
-```
-
-**Examples:**
-```console
-python3 zosia_print.py --help
-python3 zosia_print.py --place Mieszko --schedule Plan.csv
-python3 zosia_print.py --place Marcus --schedule NewPlan.csv --data some-test-data.json
-python3 zosia_print.py --place Mieszko --schedule Plan2.csv --blanks 50
-python3 zosia_print.py --schedule Plan.csv --place Marcus --render identifiers --debug
-```
