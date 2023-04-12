@@ -1,6 +1,6 @@
-# Zosia-print
+# Automate-print
 
-Zosia-print is a project that aims to automate creation of all printables that are needed at the ZOSIA conference. Based on HTML templates PDF files are generated using [Weasyprint](https://github.com/Kozea/WeasyPrint).
+Automate-print is a project that aims to automate creation of all printables. Based on HTML templates PDF files are generated using [Weasyprint]
 
 This repository also [contains information](/data/) regarding lectures schedules over years and places description.
 
@@ -11,7 +11,7 @@ This repository also [contains information](/data/) regarding lectures schedules
   * schedule - csv file that contains schedule of the conference generated in the scheduler-spreadsheet.
   * data - json file to be exported from the Zosia website.
 
-- Templates and PDFs generation, as well as data validation is done by `zosia_print.py` script.
+- Templates and PDFs generation, as well as data validation is done by `print.py` script.
 - Generated files will be placed in the `gen` directory.
 
 ## Usage
